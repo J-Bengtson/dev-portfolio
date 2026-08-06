@@ -86,23 +86,22 @@ const STATS = [
 ];
 
 const JOURNEY = [
-  { year: "2020", role: "Estágio", company: "Empresa X" },
-  { year: "2021", role: "Dev Júnior", company: "Empresa Y" },
-  { year: "2022", role: "Dev Pleno", company: "Empresa Z" },
-  { year: "2023", role: "Projeto X", company: "Sistema de Gestão" },
-  { year: "2024", role: "Projeto Y", company: "Plataforma SaaS" },
-  { year: "2025", role: "Liderança Técnica", company: "Empresa Atual" },
-  { year: "Atual", role: "Software Engineer", company: "Empresa Atual" },
+  { year: "2019 - 2020", role: "Estagiário", company: "GreenLegis" },
+  { year: "2020 - 2024", role: "Dev Júnior", company: "GreenLegis" },
+  { year: "2024 - 2026", role: "Dev Pleno", company: "GreenLegis" },
 ];
 
 const STACK = [
   {
-    group: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind"],
+    group: "Backend",
+    items: [".NET Core", "Microserviços", "C#", "REST APIs"],
   },
-  { group: "Backend", items: ["C#", ".NET 8", "Node.js", "REST / gRPC"] },
-  { group: "Database", items: ["SQL Server", "PostgreSQL", "Redis"] },
-  { group: "DevOps", items: ["Docker", "AWS", "CI/CD", "Kubernetes"] },
+  {
+    group: "Frontend",
+    items: ["React", "TypeScript", "Redux", "Material UI", "Angular"],
+  },
+  { group: "Database", items: ["MySQL", "MongoDB", "Elastic Search"] },
+  { group: "DevOps & Cloud", items: ["AWS", "Docker", "CI/CD", "Terraform"] },
 ];
 
 const ACHIEVEMENTS = [
@@ -118,10 +117,10 @@ const ACHIEVEMENTS = [
 ];
 
 const CONTACT = [
-  { icon: Mail, label: "Email", value: "contato@seudominio.dev" },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/seuperfil" },
-  { icon: Github, label: "GitHub", value: "github.com/seuusuario" },
-  { icon: MapPin, label: "Localização", value: "Brasil" },
+  { icon: Mail, label: "Email", value: "contato@juliobengtson.dev" },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/juliobengtson" },
+  { icon: Github, label: "GitHub", value: "github.com/J-Bengtson" },
+  { icon: MapPin, label: "Localização", value: "Belo Horizonte, MG - Brasil" },
 ];
 
 const CAROUSEL = [
@@ -129,35 +128,35 @@ const CAROUSEL = [
     title: "Sistema de Gestão Empresarial",
     category: "Full Stack",
     desc: "ERP modular com dashboard em tempo real, controle de estoque e BI integrado.",
-    tags: ["React", ".NET 8", "SQL Server", "Docker"],
+    tags: ["React", ".NET Core", "MySQL", "Docker"],
     metric: "↓ 40% tempo operacional",
   },
   {
     title: "Plataforma SaaS Multi-tenant",
     category: "Arquitetura",
     desc: "Isolamento por tenant, billing recorrente e onboarding self-service.",
-    tags: ["Next.js", "PostgreSQL", "Redis", "AWS"],
+    tags: ["React", "MySQL", "AWS", "Microserviços"],
     metric: "1.2k contas ativas",
   },
   {
     title: "API de Pagamentos",
     category: "Backend",
     desc: "Gateway resiliente com filas, retry idempotente e observabilidade completa.",
-    tags: ["C#", "gRPC", "RabbitMQ", "K8s"],
+    tags: [".NET Core", "Microserviços", "Docker", "AWS"],
     metric: "100k+ req/dia",
   },
   {
     title: "Design System Interno",
     category: "Frontend",
     desc: "Biblioteca de componentes acessíveis com tokens e documentação viva.",
-    tags: ["React", "TypeScript", "Tailwind", "Storybook"],
+    tags: ["React", "TypeScript", "Material UI"],
     metric: "38 componentes",
   },
   {
     title: "Pipeline de Dados",
     category: "DevOps",
     desc: "Ingestão event-driven com processamento incremental e alertas automáticos.",
-    tags: ["Node.js", "Kafka", "Terraform", "AWS"],
+    tags: ["Docker", "AWS", "MySQL"],
     metric: "99.9% uptime",
   },
 ];
@@ -166,22 +165,22 @@ const SERVICES = [
   {
     icon: Code2,
     title: "Aplicações Web",
-    desc: "SPAs e sites performáticos com React, Next.js e TypeScript.",
+    desc: "SPAs e sites performáticos com React, TypeScript e Material UI.",
   },
   {
     icon: Server,
     title: "APIs & Backend",
-    desc: "APIs REST/gRPC em C# e .NET com foco em escala e segurança.",
+    desc: "APIs REST em .NET Core e arquitetura de Microsserviços.",
   },
   {
     icon: Gauge,
-    title: "Performance",
-    desc: "Auditoria e otimização de Core Web Vitals e consultas SQL.",
+    title: "Performance & Banco de Dados",
+    desc: "Otimização de consultas MySQL e alta disponibilidade.",
   },
   {
     icon: GitBranch,
-    title: "DevOps & CI/CD",
-    desc: "Containers, pipelines automatizados e deploy sem downtime.",
+    title: "DevOps & Cloud",
+    desc: "Containers Docker, implantação na AWS e automação CI/CD.",
   },
 ];
 
@@ -209,10 +208,10 @@ const TESTIMONIALS = [
 ];
 
 const CERTS = [
-  { title: "AWS Solutions Architect", year: "2025" },
-  { title: "Microsoft Certified: Azure Developer", year: "2024" },
-  { title: "Certified Kubernetes Application Developer", year: "2024" },
-  { title: "Scrum Foundation Professional", year: "2022" },
+  { title: "Formação Angular 13 - O início criando 7 projetos", year: "2026", issuer: "Udemy" },
+  { title: "Fundamentos do C#", year: "2023", issuer: "desenvolvedor.io" },
+  { title: "React + Redux, Material UI, Hooks, Typescript e API's Rest", year: "2022", issuer: "Udemy" },
+  { title: "Clean Architecture Essencial - ASP .NET Core com C#", year: "2022", issuer: "Udemy" },
 ];
 
 const ARTICLES = [
