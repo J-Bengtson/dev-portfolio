@@ -739,6 +739,28 @@ export function PortfolioPage() {
                   Ver projetos &lt;/&gt;
                 </a>
               </div>
+
+              {/* ── Resume Banner (Hero) ─────────────────────── */}
+              <a
+                href="/resume"
+                className="group mt-6 flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-r from-primary/10 via-surface-bright to-neon/5 px-4 py-3 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative flex size-9 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/15">
+                    <FileText className="size-4 text-primary" strokeWidth={1.75} />
+                    <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-background bg-neon animate-pulse" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">Currículo completo disponível</p>
+                    <p className="font-mono text-[10px] text-muted-foreground">Experiência · Skills · Certificações · PDF</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/15 px-3 py-1.5 font-mono text-[10px] text-primary transition-colors group-hover:bg-primary/25">
+                  Ver agora
+                  <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </a>
+
               <div className="mt-10">
                 <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   Conecte-se comigo
@@ -1355,6 +1377,45 @@ export function PortfolioPage() {
                 </div>
               ))}
             </div>
+          </Card>
+
+          {/* RESUME CTA BANNER */}
+          <Card className="group relative overflow-hidden p-0" delay={620}>
+            <a
+              href="/resume"
+              className="flex items-center justify-between gap-4 p-6 transition-all duration-300 hover:bg-primary/5"
+            >
+              {/* Left glow accent */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-neon via-primary to-neon-2" />
+
+              <div className="flex items-center gap-4 pl-2">
+                {/* Animated icon */}
+                <div className="relative flex size-12 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
+                  <FileText className="size-5 text-primary transition-transform duration-300 group-hover:scale-110" strokeWidth={1.75} />
+                  <span className="absolute -right-1 -top-1 flex size-3.5 items-center justify-center rounded-full bg-neon">
+                    <span className="size-1.5 animate-ping rounded-full bg-white opacity-75" />
+                  </span>
+                </div>
+
+                <div>
+                  <p className="font-display text-base font-bold text-foreground">
+                    Quer conhecer minha trajetória completa?
+                  </p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    Acesse o currículo interativo com experiências, formação, habilidades e download em PDF.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right CTA */}
+              <div className="flex shrink-0 flex-col items-end gap-2">
+                <span className="flex items-center gap-1.5 rounded-xl border border-primary/40 bg-primary/15 px-4 py-2.5 font-mono text-xs font-medium text-primary transition-colors group-hover:bg-primary/25">
+                  Ver Currículo
+                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+                <span className="font-mono text-[10px] text-muted-foreground">PDF disponível</span>
+              </div>
+            </a>
           </Card>
 
           {/* CONTACT */}

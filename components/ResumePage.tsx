@@ -20,6 +20,20 @@ import {
   Server,
   Layers,
   CheckCircle2,
+  Rocket,
+  Trophy,
+  Users,
+  GitBranch,
+  Cpu,
+  ShieldCheck,
+  TrendingUp,
+  Coffee,
+  Clock,
+  Award,
+  ArrowRight,
+  Sparkles,
+  HeartHandshake,
+  BarChart3,
 } from "lucide-react";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
@@ -169,6 +183,57 @@ const LANGUAGES = [
 ];
 
 const SKILL_GROUPS = ["Frontend", "Backend", "Database", "DevOps", "Soft Skills"];
+
+const QUICK_STATS = [
+  { icon: Briefcase, value: 6, suffix: "+", label: "Anos de exp.", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
+  { icon: Rocket,    value: 30, suffix: "+", label: "Projetos entregues", color: "text-neon",   bg: "bg-neon/10 border-neon/25" },
+  { icon: Users,     value: 500, suffix: "k+", label: "Usuários impactados", color: "text-neon-2", bg: "bg-neon-2/10 border-neon-2/25" },
+  { icon: Trophy,    value: 4,   suffix: "",   label: "Certificações", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
+  { icon: GitBranch, value: 1450, suffix: "+", label: "Commits/ano", color: "text-neon",   bg: "bg-neon/10 border-neon/25" },
+  { icon: Cpu,       value: 15,   suffix: "+", label: "Tecnologias", color: "text-neon-2", bg: "bg-neon-2/10 border-neon-2/25" },
+];
+
+const ACHIEVEMENTS_HIGHLIGHT = [
+  { icon: TrendingUp,    title: "-65% Latência",       desc: "Otimização de API financeira em produção",         color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
+  { icon: ShieldCheck,   title: "99.9% Uptime",        desc: "APIs de pagamento com 100k+ req/dia",             color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
+  { icon: Coffee,        title: "Zero Downtime",       desc: "Migração monolito → microsserviços sem interrupção", color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
+  { icon: Award,         title: "Mérito Acadêmico",    desc: "Distinção na graduação em Ciência da Computação", color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
+  { icon: BarChart3,     title: "38 Componentes",      desc: "Design system adotado em 3 produtos da empresa",   color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
+  { icon: Clock,         title: "8 min Deploy",        desc: "Pipeline CI/CD que era 2h agora leva 8 minutos",   color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
+];
+
+// ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = React.useState(0);
+  const ref = React.useRef<HTMLSpanElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const duration = 1400;
+        const steps = 60;
+        const increment = target / steps;
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + increment, target);
+          setCount(Math.round(current));
+          if (current >= target) clearInterval(timer);
+        }, duration / steps);
+      },
+      { threshold: 0.4 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return (
+    <span ref={ref}>
+      {count.toLocaleString("pt-BR")}{suffix}
+    </span>
+  );
+}
 
 // ─── SKILL BAR ────────────────────────────────────────────────────────────────
 function SkillBar({ name, level, icon, delay = 0 }: { name: string; level: number; icon: string; delay?: number }) {
@@ -511,6 +576,24 @@ export function ResumePage() {
           </div>
         </div>
 
+        {/* ── Quick Stats Strip ───────────────────────────────────────── */}
+        <div className="animate-reveal mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 print:hidden" style={{ animationDelay: "80ms" }}>
+          {QUICK_STATS.map(({ icon: Icon, value, suffix, label, color, bg }) => (
+            <div
+              key={label}
+              className={`group flex flex-col items-center gap-1.5 rounded-2xl border p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${bg}`}
+            >
+              <div className={`flex size-9 items-center justify-center rounded-xl bg-background/60 ${color}`}>
+                <Icon className="size-4" strokeWidth={1.75} />
+              </div>
+              <div className={`font-display text-2xl font-extrabold ${color}`}>
+                <AnimatedCounter target={value} suffix={suffix} />
+              </div>
+              <div className="font-mono text-[10px] leading-tight text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </div>
+
         {/* ── Two-column layout ──────────────────────────────────────── */}
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Main column — Experience + Education */}
@@ -555,6 +638,28 @@ export function ResumePage() {
                   Ver mais {EDUCATION.length - 1} certificações
                 </button>
               )}
+            </section>
+
+            {/* ─ ACHIEVEMENTS HIGHLIGHT ──────────────────────────────── */}
+            <section id="resume-achievements">
+              <SectionTitle icon={Trophy} title="Conquistas em Destaque" />
+              <div className="grid gap-3 sm:grid-cols-2">
+                {ACHIEVEMENTS_HIGHLIGHT.map((item, i) => (
+                  <div
+                    key={item.title}
+                    className={`animate-reveal group flex items-start gap-3 rounded-2xl border p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${item.bg} ${item.border}`}
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    <div className={`flex size-10 shrink-0 items-center justify-center rounded-xl bg-background/60 ${item.color} transition-transform duration-300 group-hover:scale-110`}>
+                      <item.icon className="size-5" strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <p className={`font-display text-sm font-bold ${item.color}`}>{item.title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </section>
           </div>
 
