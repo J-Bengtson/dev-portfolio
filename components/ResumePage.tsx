@@ -84,6 +84,7 @@ const EXPERIENCE = [
   },
   {
     company: "GreenLegis",
+
     role: "Estagiário de Desenvolvimento",
     period: "2019 – 2020",
     location: "Belo Horizonte, MG",
@@ -132,6 +133,7 @@ const EDUCATION = [
     period: "Maio/2022",
     location: "Online",
     description:
+
       "Certificado UC-230dd2c4-8d18-4c4c-b715-190466d683e8.",
     highlights: [],
   },
