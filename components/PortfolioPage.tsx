@@ -30,6 +30,22 @@ import {
   GitBranch,
   Server,
   Gauge,
+  Workflow,
+  TrendingUp,
+  ShieldCheck,
+  GraduationCap,
+  HelpCircle,
+  CheckCircle2,
+  ChevronDown,
+  Wrench,
+  Globe2,
+  GitPullRequest,
+  Bookmark,
+  CalendarDays,
+  Check,
+  Search,
+  Loader2,
+  ExternalLink,
 } from "lucide-react";
 import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { Marquee } from "@/components/Marquee";
@@ -37,14 +53,25 @@ import { TechIcon } from "@/components/TechIcon";
 
 const NAV = [
   { icon: Home, label: "Home", href: "#hero" },
+  { icon: Github, label: "Sync GitHub", href: "#github-sync" },
   { icon: User, label: "Sobre", href: "#stats" },
+  { icon: Globe2, label: "Métricas", href: "#global-metrics" },
   { icon: Briefcase, label: "Carreira", href: "#journey" },
   { icon: FolderKanban, label: "Projetos", href: "#projects" },
+  { icon: CalendarDays, label: "Roadmap", href: "#roadmap" },
+  { icon: Workflow, label: "Processo", href: "#process" },
+  { icon: TrendingUp, label: "Casos de Sucesso", href: "#cases" },
+  { icon: ShieldCheck, label: "Princípios", href: "#philosophy" },
   { icon: Zap, label: "Serviços", href: "#services" },
+  { icon: Wrench, label: "Ferramentas", href: "#setup" },
+  { icon: GitPullRequest, label: "Open Source", href: "#opensource" },
+  { icon: GraduationCap, label: "Mentoria", href: "#mentorship" },
   { icon: Layers, label: "Skills", href: "#stack" },
   { icon: Quote, label: "Depoimentos", href: "#testimonials" },
   { icon: Award, label: "Certificações", href: "#certs" },
   { icon: BookOpen, label: "Artigos", href: "#articles" },
+  { icon: Bookmark, label: "Livros", href: "#reads" },
+  { icon: HelpCircle, label: "FAQ", href: "#faq" },
   { icon: Trophy, label: "Conquistas", href: "#achievements" },
   { icon: Mail, label: "Contato", href: "#contact" },
 ];
@@ -204,6 +231,137 @@ const ARTICLES = [
   },
 ];
 
+const WORKFLOW = [
+  {
+    step: "01",
+    title: "Imersão & Discovery",
+    desc: "Análise profunda de requisitos, gargalos de arquitetura e objetivos de negócio antes de escrever código.",
+  },
+  {
+    step: "02",
+    title: "Desenho de Arquitetura",
+    desc: "Modelagem de dados, diagramas de fluxo, definição de stack e estratégia de segurança e resiliência.",
+  },
+  {
+    step: "03",
+    title: "Desenvolvimento Ágil",
+    desc: "Sprints com código limpo, testes automatizados, CI/CD e entregas parciais validadas com o cliente.",
+  },
+  {
+    step: "04",
+    title: "Deploy & Observabilidade",
+    desc: "Lançamento automatizado em produção com logs distribuídos, telemetria, dashboards de performance e suporte.",
+  },
+];
+
+const CASE_STUDIES = [
+  {
+    client: "Fintech Leader",
+    title: "Otimização de API Financeira",
+    result: "Redução de 65% na latência e zero downtime na Black Friday",
+    highlight: "-65% Latência",
+  },
+  {
+    client: "E-commerce SaaS",
+    title: "Migração Monolito -> Microserviços",
+    result: "Arquitetura com .NET 8 e Redis processando 150k+ pedidos por dia",
+    highlight: "150k+ req/dia",
+  },
+];
+
+const PHILOSOPHY = [
+  {
+    title: "Simplicidade Antes de Abstração",
+    desc: "Evito complexidade desnecessária. O código mais fácil de manter é aquele que resolve o problema sem inventar rodeios.",
+  },
+  {
+    title: "Testes como Documentação Viva",
+    desc: "Suíte de testes automatizados garante refatorações seguras e documenta o comportamento real do sistema.",
+  },
+  {
+    title: "Foco no Impacto de Negócio",
+    desc: "Tecnologia é meio, não fim. Toda decisão técnica deve gerar valor claro para o usuário e eficiência operacional.",
+  },
+];
+
+const MENTORSHIP = [
+  {
+    title: "Code Review & Arquitetura",
+    desc: "Auditoria detalhada do seu projeto com feedbacks práticos de Clean Code e performance.",
+  },
+  {
+    title: "Mentoria 1-on-1 para Devs",
+    desc: "Acompanhamento individual para aceleração de carreira, migração de stack (.NET/React) e entrevistas.",
+  },
+];
+
+const FAQ = [
+  {
+    q: "Qual é o seu formato de trabalho atual?",
+    a: "Atuo tanto como Software Engineer em regime PJ/CLT quanto em consultorias técnicas e projetos pontuais de arquitetura.",
+  },
+  {
+    q: "Quais tecnologias você mais utiliza?",
+    a: "Especialista em ecossistema .NET (C#) para backend/APIs resilientes e React / Next.js / TypeScript no frontend moderno.",
+  },
+  {
+    q: "Você realiza consultoria para projetos legados?",
+    a: "Sim, realizo diagnóstico de performance, refatoração de código, modernização de stack e implementação de DevOps/CI-CD.",
+  },
+];
+
+const GLOBAL_METRICS = [
+  { label: "Commits no último ano", value: "1,450+" },
+  { label: "Linhas de código mantidas", value: "250k+" },
+  { label: "Usuários impactados", value: "500k+" },
+  { label: "Países de atuação", value: "Global" },
+];
+
+const ROADMAP = [
+  {
+    period: "Q1 2025",
+    goal: "Especialização em Rust & WebAssembly",
+    status: "Em andamento",
+  },
+  {
+    period: "Q2 2025",
+    goal: "Lançamento de biblioteca Open Source para .NET",
+    status: "Planejado",
+  },
+  {
+    period: "Q3 2025",
+    goal: "Palestra em conferência de Arquitetura de Software",
+    status: "Planejado",
+  },
+];
+
+const DEV_SETUP = [
+  { category: "Hardware", items: ["MacBook Pro M2 Max", "Monitor LG UltraFine 34\"", "Teclado Keychron K2"] },
+  { category: "Editor & Terminal", items: ["VS Code / Rider", "Warp Terminal", "Zsh + Starship"] },
+  { category: "Produtividade", items: ["Raycast", "Notion", "Linear", "Docker Desktop"] },
+];
+
+const OPEN_SOURCE = [
+  {
+    repo: "dotnet-resilience-pack",
+    desc: "Políticas configuráveis de retry, circuit-breaker e fallback para .NET 8.",
+    stars: "128 stars",
+    language: "C#",
+  },
+  {
+    repo: "react-bento-components",
+    desc: "Coleção de cards animados e layouts responsivos em Bento Grid.",
+    stars: "94 stars",
+    language: "TypeScript",
+  },
+];
+
+const RECOMMENDED_READS = [
+  { title: "Designing Data-Intensive Applications", author: "Martin Kleppmann", topic: "Arquitetura & Sistemas" },
+  { title: "Clean Code / Clean Architecture", author: "Robert C. Martin", topic: "Boas Práticas" },
+  { title: "Domain-Driven Design", author: "Eric Evans", topic: "Modelagem" },
+];
+
 const TECH_MARQUEE = [
   "React",
   "TypeScript",
@@ -266,6 +424,44 @@ function Label({
 export function PortfolioPage() {
   const [activeNav, setActiveNav] = React.useState(0);
   const [aiQuestion, setAiQuestion] = React.useState("");
+  
+  // GitHub Live Sync state
+  const [ghUsername, setGhUsername] = React.useState("J-Bengtson");
+  const [ghInput, setGhInput] = React.useState("J-Bengtson");
+  const [ghLoading, setGhLoading] = React.useState(false);
+  const [ghError, setGhError] = React.useState<string | null>(null);
+  const [ghData, setGhData] = React.useState<any>(null);
+
+  const fetchGithubData = React.useCallback(async (userToFetch: string) => {
+    if (!userToFetch.trim()) return;
+    setGhLoading(true);
+    setGhError(null);
+    try {
+      const res = await fetch(`/api/github?username=${encodeURIComponent(userToFetch)}`);
+      const data = await res.json();
+      if (!res.ok) {
+        setGhError(data.error || "Erro ao buscar usuário");
+        setGhData(null);
+      } else {
+        setGhData(data);
+        setGhUsername(userToFetch);
+      }
+    } catch (err) {
+      setGhError("Falha na conexão com a API local");
+    } finally {
+      setGhLoading(false);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    fetchGithubData("J-Bengtson");
+  }, [fetchGithubData]);
+
+  const handleGithubSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    fetchGithubData(ghInput);
+  };
+
   const [chatHistory, setChatHistory] = React.useState([
     {
       role: "user",
@@ -346,11 +542,167 @@ export function PortfolioPage() {
 
         {/* Main Grid */}
         <main className="grid min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-2">
+          {/* GITHUB SYNC CARD */}
+          <Card id="github-sync" className="p-8 xl:col-span-2" delay={40}>
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <Label icon={Github}>GitHub Sync & Dados Dinâmicos</Label>
+                <p className="text-xs text-muted-foreground">
+                  Digite qualquer nome de usuário do GitHub para importar instantaneamente a foto, bio, estatísticas e projetos em tempo real.
+                </p>
+              </div>
+              <form onSubmit={handleGithubSearch} className="flex gap-2">
+                <div className="relative flex-1 md:w-64">
+                  <input
+                    type="text"
+                    value={ghInput}
+                    onChange={(e) => setGhInput(e.target.value)}
+                    placeholder="Username (ex: J-Bengtson)"
+                    className="w-full rounded-xl border border-border bg-surface-bright/80 py-2.5 pl-9 pr-3 font-mono text-xs focus:border-primary focus:outline-none"
+                  />
+                  <Search className="absolute left-3 top-3 size-3.5 text-muted-foreground" />
+                </div>
+                <button
+                  type="submit"
+                  disabled={ghLoading}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+                >
+                  {ghLoading ? (
+                    <Loader2 className="size-3.5 animate-spin" />
+                  ) : (
+                    <Github className="size-3.5" />
+                  )}
+                  Sincronizar
+                </button>
+              </form>
+            </div>
+
+            {ghError && (
+              <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 p-3 text-xs text-destructive">
+                {ghError}
+              </div>
+            )}
+
+            {ghData && ghData.profile && (
+              <div className="mt-6 grid gap-6 border-t border-border pt-6 md:grid-cols-3">
+                {/* Perfil Obtido */}
+                <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface-bright/60 p-4">
+                  {ghData.profile.avatar && (
+                    <img
+                      src={ghData.profile.avatar}
+                      alt={ghData.profile.name}
+                      className="size-14 rounded-full border border-primary/40 object-cover"
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate text-sm font-semibold">
+                      {ghData.profile.name}
+                    </div>
+                    <div className="font-mono text-xs text-neon">
+                      @{ghData.profile.login}
+                    </div>
+                    <p className="mt-1 line-clamp-2 text-[11px] text-muted-foreground">
+                      {ghData.profile.bio}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Métricas do Perfil */}
+                <div className="grid grid-cols-3 gap-2 rounded-2xl border border-border bg-surface-bright/60 p-4 text-center">
+                  <div>
+                    <div className="font-display text-lg text-neon">
+                      {ghData.profile.publicRepos}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase text-muted-foreground">
+                      Repos
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-display text-lg text-neon">
+                      {ghData.profile.followers}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase text-muted-foreground">
+                      Seguidores
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-display text-lg text-neon">
+                      {ghData.profile.following}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase text-muted-foreground">
+                      Seguindo
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stacks Detectadas */}
+                <div className="rounded-2xl border border-border bg-surface-bright/60 p-4">
+                  <div className="font-mono text-[10px] uppercase text-muted-foreground">
+                    Stacks Principais (GitHub)
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {ghData.topLanguages.length > 0 ? (
+                      ghData.topLanguages.slice(0, 6).map((lang: any) => {
+                        const name = typeof lang === "string" ? lang : lang.name;
+                        return (
+                          <span
+                            key={name}
+                            className="rounded-lg border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-xs text-neon"
+                          >
+                            {name}
+                          </span>
+                        );
+                      })
+                    ) : (
+                      <span className="text-xs text-muted-foreground">
+                        Nenhuma linguagem detectada
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Repositórios Recentes Obtidos Dinamicamente */}
+            {ghData && ghData.repos && ghData.repos.length > 0 && (
+              <div className="mt-6">
+                <div className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Projetos Recentes Carregados do GitHub ({ghData.repos.length})
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                  {ghData.repos.slice(0, 6).map((repo: any) => (
+                    <a
+                      key={repo.id}
+                      href={repo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group rounded-2xl border border-border bg-surface-bright/60 p-4 transition-all hover:border-primary/50"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="truncate font-mono text-xs font-semibold text-foreground group-hover:text-primary">
+                          {repo.name}
+                        </span>
+                        <ExternalLink className="size-3 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+                      <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                        {repo.description}
+                      </p>
+                      <div className="mt-3 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+                        <span className="text-neon">{repo.language}</span>
+                        <span>★ {repo.stars}</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </Card>
+
           {/* HERO */}
           <Card id="hero" className="relative overflow-hidden p-8">
             <div className="pointer-events-none absolute right-0 bottom-0 h-full w-1/2 overflow-hidden opacity-60 mix-blend-lighten [mask-image:linear-gradient(to_right,transparent,black_45%)]">
               <img
-                src="/assets/portrait.jpg"
+                src={ghData?.profile?.avatar || "/assets/portrait.jpg"}
                 alt="Retrato do desenvolvedor com iluminação neon"
                 className="h-full w-full object-cover object-top"
               />
@@ -361,17 +713,14 @@ export function PortfolioPage() {
                 Disponível para novas oportunidades
               </div>
               <p className="mt-8 text-lg text-muted-foreground">Olá, eu sou</p>
-              <h1 className="bg-gradient-to-r from-neon via-primary to-neon-2 bg-clip-text font-display text-5xl leading-[0.95] tracking-tight text-transparent md:text-6xl">
-                SEU NOME
+              <h1 className="bg-gradient-to-r from-neon via-primary to-neon-2 bg-clip-text font-display text-4xl leading-[0.95] tracking-tight text-transparent md:text-5xl">
+                {ghData?.profile?.name || "SEU NOME"}
               </h1>
               <p className="mt-3 font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground">
-                Software Engineer
+                {ghData?.profile?.company || "Software Engineer"}
               </p>
-              <p className="mt-6 text-pretty text-muted-foreground">
-                Transformo ideias em produtos digitais de alta performance
-                usando <span className="text-foreground">React</span>,{" "}
-                <span className="text-foreground">C# / .NET</span> e boas
-                práticas de arquitetura.
+              <p className="mt-6 text-pretty text-xs leading-relaxed text-muted-foreground md:text-sm">
+                {ghData?.profile?.bio || "Transformo ideias em produtos digitais de alta performance usando React, C# / .NET e boas práticas de arquitetura."}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -394,9 +743,9 @@ export function PortfolioPage() {
                 </p>
                 <div className="flex gap-3">
                   {[
-                    { icon: Github, href: "https://github.com" },
+                    { icon: Github, href: ghData?.profile?.githubUrl || "https://github.com" },
                     { icon: Linkedin, href: "https://linkedin.com" },
-                    { icon: Mail, href: "mailto:contato@seudominio.dev" },
+                    { icon: Mail, href: `mailto:${ghData?.profile?.email || "contato@seudominio.dev"}` },
                   ].map(({ icon: Icon, href }, i) => (
                     <a
                       key={i}
@@ -645,13 +994,13 @@ export function PortfolioPage() {
                 <span className="flex size-6 items-center justify-center rounded-lg border border-border bg-surface-bright text-neon">
                   <FolderKanban className="size-3.5" strokeWidth={1.75} />
                 </span>
-                Portfólio em movimento
+                Portfólio em movimento {ghData ? "(Sincronizado com GitHub)" : ""}
               </h2>
               <span className="font-mono text-[10px] text-muted-foreground">
                 arraste · setas · auto-play
               </span>
             </div>
-            <ProjectCarousel items={CAROUSEL} />
+            <ProjectCarousel items={ghData?.carouselProjects && ghData.carouselProjects.length > 0 ? ghData.carouselProjects : CAROUSEL} />
           </Card>
 
           {/* TECH MARQUEE — full width */}
@@ -682,6 +1031,29 @@ export function PortfolioPage() {
             </div>
           </Card>
 
+          {/* ESTATÍSTICAS E MÉTRICAS GLOBAIS DINÂMICAS */}
+          <Card id="global-metrics" className="p-8 xl:col-span-2" delay={645}>
+            <Label icon={Globe2}>Métricas Globais & Escala (GitHub Real-time)</Label>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { label: "Repositórios Públicos", value: ghData?.profile?.publicRepos ?? "30+" },
+                { label: "Total de Estrelas", value: ghData?.profile?.totalStars ?? "150+" },
+                { label: "Forks Recebidos", value: ghData?.profile?.totalForks ?? "45+" },
+                { label: "Seguidores no GitHub", value: ghData?.profile?.followers ?? "100+" },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-4 text-center"
+                >
+                  <div className="font-display text-2xl text-neon">{m.value}</div>
+                  <div className="mt-1 font-mono text-[10px] uppercase text-muted-foreground">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
           {/* SERVIÇOS */}
           <Card id="services" className="p-8" delay={640}>
             <Label icon={Sparkles}>Como posso ajudar</Label>
@@ -698,6 +1070,129 @@ export function PortfolioPage() {
                   <div className="text-sm font-medium">{title}</div>
                   <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
                 </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* NOVO 7: ROADMAP E METAS FUTURAS */}
+          <Card id="roadmap" className="p-8" delay={648}>
+            <Label icon={CalendarDays}>Roadmap & Visão Futura</Label>
+            <div className="space-y-3">
+              {ROADMAP.map((r) => (
+                <div
+                  key={r.period}
+                  className="flex items-center justify-between rounded-2xl border border-border bg-surface-bright/60 p-3"
+                >
+                  <div>
+                    <div className="font-mono text-[10px] uppercase text-neon">
+                      {r.period}
+                    </div>
+                    <div className="text-sm font-medium">{r.goal}</div>
+                  </div>
+                  <span className="rounded-full bg-surface-bright px-2 py-1 font-mono text-[10px] text-muted-foreground">
+                    {r.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* NOVO 1: PROCESSO DE TRABALHO */}
+          <Card id="process" className="p-8 xl:col-span-2" delay={650}>
+            <Label icon={Workflow}>Processo & Metodologia</Label>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {WORKFLOW.map((w) => (
+                <div
+                  key={w.step}
+                  className="relative rounded-2xl border border-border bg-surface-bright/60 p-4 transition-all hover:border-primary/40"
+                >
+                  <span className="font-mono text-2xl font-bold text-neon/40">
+                    {w.step}
+                  </span>
+                  <div className="mt-2 text-sm font-semibold">{w.title}</div>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {w.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* NOVO 8: MEU SETUP & FERRAMENTAS */}
+          <Card id="setup" className="p-8" delay={652}>
+            <Label icon={Wrench}>Meu Setup & Workflow</Label>
+            <div className="space-y-4">
+              {DEV_SETUP.map((s) => (
+                <div key={s.category}>
+                  <div className="font-mono text-[10px] uppercase text-muted-foreground">
+                    {s.category}
+                  </div>
+                  <div className="mt-1 flex flex-wrap gap-1.5">
+                    {s.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-lg border border-border bg-surface-bright/60 px-2 py-1 font-mono text-xs"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* NOVO 2: CASOS DE SUCESSO */}
+          <Card id="cases" className="p-8" delay={655}>
+            <Label icon={TrendingUp}>Casos de Sucesso</Label>
+            <div className="space-y-4">
+              {CASE_STUDIES.map((c) => (
+                <div
+                  key={c.title}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[10px] uppercase text-muted-foreground">
+                      {c.client}
+                    </span>
+                    <span className="rounded-full bg-primary/20 px-2 py-0.5 font-mono text-[10px] text-neon">
+                      {c.highlight}
+                    </span>
+                  </div>
+                  <div className="mt-1 text-sm font-medium">{c.title}</div>
+                  <p className="mt-1 text-xs text-muted-foreground">{c.result}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* PROJETOS OPEN SOURCE DINÂMICOS */}
+          <Card id="opensource" className="p-8 xl:col-span-2" delay={658}>
+            <Label icon={GitPullRequest}>
+              Contribuições Open Source {ghData ? "(Repositórios Reais do GitHub)" : ""}
+            </Label>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {(ghData?.openSourceRepos && ghData.openSourceRepos.length > 0
+                ? ghData.openSourceRepos
+                : OPEN_SOURCE
+              ).map((o: any) => (
+                <a
+                  key={o.repo}
+                  href={o.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl border border-border bg-surface-bright/60 p-4 transition-colors hover:border-primary/40"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-sm font-semibold text-neon group-hover:underline">
+                      {o.repo}
+                    </span>
+                    <span className="font-mono text-[10px] text-muted-foreground">
+                      ★ {o.stars}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground">{o.desc}</p>
+                </a>
               ))}
             </div>
           </Card>
@@ -723,6 +1218,43 @@ export function PortfolioPage() {
                 </li>
               ))}
             </ul>
+          </Card>
+
+          {/* NOVO 3: FILOSOFIA & PRINCÍPIOS DE CÓDIGO */}
+          <Card id="philosophy" className="p-8 xl:col-span-2" delay={665}>
+            <Label icon={ShieldCheck}>Filosofia & Princípios</Label>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {PHILOSOPHY.map((p) => (
+                <div
+                  key={p.title}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-4"
+                >
+                  <div className="flex items-center gap-2 text-sm font-medium text-neon">
+                    <CheckCircle2 className="size-4 shrink-0" />
+                    {p.title}
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    {p.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* NOVO 4: MENTORIA & CONSULTORIA */}
+          <Card id="mentorship" className="p-8" delay={670}>
+            <Label icon={GraduationCap}>Mentoria & Consultoria</Label>
+            <div className="space-y-3">
+              {MENTORSHIP.map((m) => (
+                <div
+                  key={m.title}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-4"
+                >
+                  <div className="text-sm font-medium">{m.title}</div>
+                  <p className="mt-1 text-xs text-muted-foreground">{m.desc}</p>
+                </div>
+              ))}
+            </div>
           </Card>
 
           {/* DEPOIMENTOS — full width marquee */}
@@ -784,6 +1316,43 @@ export function PortfolioPage() {
                 </li>
               ))}
             </ul>
+          </Card>
+
+          {/* NOVO 10: LIVROS & RECOMENDAÇÕES */}
+          <Card id="reads" className="p-8" delay={710}>
+            <Label icon={Bookmark}>Livros & Recomendações</Label>
+            <ul className="space-y-3">
+              {RECOMMENDED_READS.map((b) => (
+                <li
+                  key={b.title}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-3"
+                >
+                  <div className="font-mono text-[10px] uppercase text-neon">
+                    {b.topic}
+                  </div>
+                  <div className="text-sm font-medium">{b.title}</div>
+                  <div className="text-xs text-muted-foreground">{b.author}</div>
+                </li>
+              ))}
+            </ul>
+          </Card>
+
+          {/* NOVO 5: PERGUNTAS FREQUENTES (FAQ) */}
+          <Card id="faq" className="p-8 xl:col-span-2" delay={720}>
+            <Label icon={HelpCircle}>Perguntas Frequentes (FAQ)</Label>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {FAQ.map((item) => (
+                <div
+                  key={item.q}
+                  className="rounded-2xl border border-border bg-surface-bright/60 p-4"
+                >
+                  <div className="text-sm font-medium text-neon">{item.q}</div>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    {item.a}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Card>
 
           {/* CONTACT */}
