@@ -33,11 +33,15 @@ const MAP: Record<string, IconType> = {
   grpc: SiGraphql,
   postgresql: SiPostgresql,
   "sql server": SiMysql,
+  mysql: SiMysql,
   redis: SiRedis,
   docker: SiDocker,
   kubernetes: SiKubernetes,
   aws: FaAws,
   "ci/cd": SiGithubactions,
+  ".net core": SiDotnet,
+  microserviços: SiDotnet,
+  microsserviços: SiDotnet,
 };
 
 export function TechIcon({

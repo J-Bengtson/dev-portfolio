@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   Briefcase,
   GraduationCap,
-  Globe2,
   Code2,
   MapPin,
   Mail,
@@ -35,6 +34,8 @@ import {
   HeartHandshake,
   BarChart3,
 } from "lucide-react";
+
+import { TechIcon } from "@/components/TechIcon";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 // Edit these arrays with your real information
@@ -69,7 +70,7 @@ const EXPERIENCE = [
   },
   {
     company: "GreenLegis",
-    role: "Desenvolvedor Júnior I",
+    role: "Desenvolvedor Júnior",
     period: "2020 – 2024",
     location: "Belo Horizonte, MG",
     type: "CLT",
@@ -170,13 +171,24 @@ const SKILLS = [
   { name: "Comunicação", level: 92, group: "Soft Skills", icon: "💬" },
 ];
 
-const LANGUAGES = [
-  { lang: "Português", level: "Nativo", flag: "🇧🇷", percent: 100 },
-  { lang: "Inglês", level: "Avançado (C1)", flag: "🇺🇸", percent: 85 },
-  { lang: "Espanhol", level: "Básico (A2)", flag: "🇪🇸", percent: 40 },
+const STACKS = [
+  {
+    group: "Backend",
+    items: [".NET Core", "C#", "Microserviços", "REST APIs"],
+  },
+  {
+    group: "Frontend",
+    items: ["React", "TypeScript", "Next.js", "Angular"],
+  },
+  {
+    group: "Database",
+    items: ["MySQL", "PostgreSQL", "Redis", "MongoDB"],
+  },
+  {
+    group: "DevOps & Cloud",
+    items: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+  },
 ];
-
-const SKILL_GROUPS = ["Frontend", "Backend", "Database", "DevOps", "Soft Skills"];
 
 const QUICK_STATS = [
   { icon: Briefcase, value: 6, suffix: "+", label: "Anos de exp.", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
@@ -276,14 +288,10 @@ function TimelineNode({ color = "primary" }: { color?: "primary" | "neon" | "neo
 function ExperienceCard({
   item,
   index,
-  expanded,
 }: {
   item: (typeof EXPERIENCE)[0];
   index: number;
-  expanded: boolean;
 }) {
-  const [open, setOpen] = React.useState(false);
-
   return (
     <div
       className="animate-reveal group rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
@@ -316,7 +324,7 @@ function ExperienceCard({
       <p className="mb-3 text-xs leading-relaxed text-muted-foreground">{item.description}</p>
 
       {/* Highlights */}
-      {(expanded || open) && (
+      {item.highlights.length > 0 && (
         <ul className="mb-3 space-y-1.5">
           {item.highlights.map((h) => (
             <li key={h} className="flex items-start gap-2 text-xs text-foreground/80">
@@ -333,20 +341,13 @@ function ExperienceCard({
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-lg border border-border bg-surface-bright px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-surface-bright px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
             >
+              <TechIcon name={tag} className="size-3 text-primary" />
               {tag}
             </span>
           ))}
         </div>
-        {!expanded && item.highlights.length > 0 && (
-          <button
-            onClick={() => setOpen(!open)}
-            className="font-mono text-[10px] text-primary hover:underline"
-          >
-            {open ? "Ver menos" : `Ver ${item.highlights.length} destaques →`}
-          </button>
-        )}
       </div>
     </div>
   );
@@ -434,22 +435,9 @@ function TimelineSection({ children, nodeColor = "primary" }: { children: React.
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export function ResumePage() {
-  const [mode, setMode] = React.useState<"summary" | "full">("summary");
-  const expanded = mode === "full";
-
-  const visibleExperience = expanded ? EXPERIENCE : EXPERIENCE.slice(0, 2);
-  const visibleEducation = expanded ? EDUCATION : EDUCATION.slice(0, 1);
-  const visibleSkills = expanded ? SKILLS : SKILLS.slice(0, 8);
-
   const handlePrint = () => {
-    setMode("full");
-    window.setTimeout(() => window.print(), 100);
+    window.print();
   };
-
-  const skillsByGroup = SKILL_GROUPS.map((group) => ({
-    group,
-    skills: visibleSkills.filter((s) => s.group === group),
-  })).filter((g) => g.skills.length > 0);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 print:bg-white print:text-black">
@@ -471,30 +459,6 @@ export function ResumePage() {
           </a>
 
           <div className="flex items-center gap-2">
-            {/* Toggle */}
-            <div className="flex overflow-hidden rounded-xl border border-border bg-surface/70">
-              <button
-                onClick={() => setMode("summary")}
-                className={`px-4 py-2.5 text-xs font-medium transition-colors ${
-                  mode === "summary"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                Resumido
-              </button>
-              <button
-                onClick={() => setMode("full")}
-                className={`px-4 py-2.5 text-xs font-medium transition-colors ${
-                  mode === "full"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                Completo
-              </button>
-            </div>
-
             {/* Download PDF */}
             <button
               onClick={handlePrint}
@@ -572,137 +536,59 @@ export function ResumePage() {
           <div className="space-y-8 lg:col-span-2">
             {/* ─ EXPERIENCE ──────────────────────────────────── */}
             <section id="resume-experience">
-              <SectionTitle icon={Briefcase} title="Experiência Profissional" count={visibleExperience.length} />
+              <SectionTitle icon={Briefcase} title="Experiência Profissional" count={EXPERIENCE.length} />
               <div className="space-y-1">
-                {visibleExperience.map((item, i) => (
+                {EXPERIENCE.map((item, i) => (
                   <TimelineSection key={item.company + item.period} nodeColor="primary">
-                    <ExperienceCard item={item} index={i} expanded={expanded} />
+                    <ExperienceCard item={item} index={i} />
                   </TimelineSection>
                 ))}
               </div>
-              {!expanded && EXPERIENCE.length > 2 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-2 ml-8 flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Zap className="size-3" />
-                  Ver mais {EXPERIENCE.length - 2} experiências anteriores
-                </button>
-              )}
             </section>
 
             {/* ─ EDUCATION ───────────────────────────────────── */}
             <section id="resume-education">
-              <SectionTitle icon={GraduationCap} title="Formação & Certificações" count={visibleEducation.length} />
+              <SectionTitle icon={GraduationCap} title="Formação & Certificações" count={EDUCATION.length} />
               <div className="space-y-1">
-                {visibleEducation.map((item, i) => (
+                {EDUCATION.map((item, i) => (
                   <TimelineSection key={item.institution + item.period} nodeColor="neon">
                     <EducationCard item={item} index={i} />
                   </TimelineSection>
                 ))}
               </div>
-              {!expanded && EDUCATION.length > 1 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-2 ml-8 flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Zap className="size-3" />
-                  Ver mais {EDUCATION.length - 1} certificações
-                </button>
-              )}
             </section>
 
           </div>
 
-          {/* Sidebar column — Skills + Languages */}
+          {/* Sidebar column — Stacks */}
           <div className="space-y-6">
-            {/* ─ SKILLS ──────────────────────────────────────── */}
             <section
-              id="resume-skills"
-              className="animate-reveal rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm print:hidden"
+              id="resume-stacks"
+              className="animate-reveal rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm"
+              style={{ animationDelay: "120ms" }}
             >
-              <SectionTitle icon={Code2} title="Habilidades" />
-              <div className="space-y-6">
-                {skillsByGroup.map(({ group, skills }) => (
-                  <div key={group}>
-                    <div className="mb-3 flex items-center gap-2">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                        {group}
-                      </span>
-                      <div className="flex-1 border-t border-border" />
-                    </div>
-                    <div className="space-y-3">
-                      {skills.map((s, i) => (
-                        <SkillBar key={s.name} name={s.name} level={s.level} icon={s.icon} delay={i * 100} />
+              <SectionTitle icon={Layers} title="Stacks" />
+              <div className="space-y-4">
+                {STACKS.map((group) => (
+                  <div key={group.group}>
+                    <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                      {group.group}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <span
+                          key={item}
+                          className="flex items-center gap-1.5 rounded-full border border-border bg-surface-bright px-2.5 py-1 text-[11px] text-foreground/80"
+                        >
+                          <TechIcon name={item} className="size-3.5 text-primary" />
+                          {item}
+                        </span>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
-              {!expanded && SKILLS.length > 8 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-xl border border-border py-2 font-mono text-[10px] text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                >
-                  <Layers className="size-3" />
-                  Ver todas as {SKILLS.length} habilidades
-                </button>
-              )}
             </section>
-
-            {/* ─ LANGUAGES ───────────────────────────────────── */}
-            <section
-              id="resume-languages"
-              className="animate-reveal rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm"
-              style={{ animationDelay: "120ms" }}
-            >
-              <SectionTitle icon={Globe2} title="Idiomas" />
-              <div className="space-y-4">
-                {LANGUAGES.map((l) => (
-                  <div key={l.lang}>
-                    <div className="mb-1.5 flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-xs font-medium text-foreground">
-                        <span className="text-base">{l.flag}</span>
-                        {l.lang}
-                      </span>
-                      <span className="font-mono text-[10px] text-muted-foreground">{l.level}</span>
-                    </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-surface-bright">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-neon-2 to-neon"
-                        style={{ width: `${l.percent}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* ─ MODE INDICATOR ──────────────────────────────── */}
-            <div className="animate-reveal rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm print:hidden" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-3">
-                <div className={`size-2 rounded-full ${expanded ? "bg-neon animate-pulse" : "bg-primary"}`} />
-                <div>
-                  <p className="text-xs font-medium text-foreground">
-                    Modo {expanded ? "Completo" : "Resumido"}
-                  </p>
-                  <p className="font-mono text-[10px] text-muted-foreground">
-                    {expanded
-                      ? `Exibindo ${EXPERIENCE.length} exp. + ${EDUCATION.length} form.`
-                      : `Exibindo ${visibleExperience.length} de ${EXPERIENCE.length} exp.`}
-                  </p>
-                </div>
-              </div>
-              {!expanded && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl border border-primary/30 bg-primary/10 py-2.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-                >
-                  <FileText className="size-3.5" />
-                  Ver currículo completo
-                </button>
-              )}
-            </div>
           </div>
         </div>
 
