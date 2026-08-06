@@ -40,116 +40,99 @@ import {
 // Edit these arrays with your real information
 
 const RESUME_HEADER = {
-  name: "Seu Nome Completo",
-  title: "Software Engineer Full Stack",
-  location: "Brasil",
-  email: "contato@seudominio.dev",
-  linkedin: "linkedin.com/in/seuperfil",
-  github: "github.com/seuusuario",
+  name: "Júlio Bengtson Neves",
+  title: "Desenvolvedor Full Stack / Software Engineer",
+  location: "Belo Horizonte, MG - Brasil",
+  email: "contato@juliobengtson.dev",
+  linkedin: "linkedin.com/in/juliobengtson",
+  github: "github.com/J-Bengtson",
   summary:
-    "Desenvolvedor Full Stack com 6+ anos de experiência criando aplicações escaláveis, APIs de alta performance e interfaces modernas. Especialista em React/Next.js e C#/.NET 8, com domínio em arquitetura de microsserviços, DevOps e cloud AWS.",
+    "Desenvolvedor Full Stack com sólida trajetória na GreenLegis (de Estagiário a Desenvolvedor Pleno). Especialista em ecossistema .NET Core, arquitetura de microsserviços, React, AWS, Docker e MySQL, focado no desenvolvimento e entrega de sistemas resilientes e de alta performance.",
 };
 
 const EXPERIENCE = [
   {
-    company: "Empresa Atual",
-    role: "Software Engineer Sênior",
-    period: "Jan 2025 – Presente",
-    location: "Remoto",
-    type: "CLT/PJ",
-    description:
-      "Liderança técnica de squad de 4 devs, responsável pela arquitetura de plataforma SaaS multi-tenant com Next.js e .NET 8.",
-    highlights: [
-      "Reduziu latência da API principal em 65% via cache Redis e otimização de queries",
-      "Implementou pipeline CI/CD com GitHub Actions, reduzindo deploy de 2h para 8min",
-      "Liderou migração de monolito para microsserviços com zero downtime",
-      "Arquitetou design system com 38 componentes usados em 3 produtos",
-    ],
-    tags: ["Next.js", "C#", ".NET 8", "Redis", "Docker", "AWS"],
-  },
-  {
-    company: "Empresa Anterior",
-    role: "Dev Full Stack Pleno",
-    period: "Mar 2022 – Dez 2024",
-    location: "São Paulo, SP",
+    company: "GreenLegis",
+    role: "Desenvolvedor Pleno",
+    period: "2024 – 2026",
+    location: "Belo Horizonte, MG",
     type: "CLT",
     description:
-      "Desenvolvimento de ERP modular com dashboard em tempo real, controle de estoque e módulos de BI integrado.",
+      "Atuação no desenvolvimento e arquitetura de soluções corporativas escaláveis com stack em .NET Core, microsserviços, React, AWS, Docker e MySQL.",
     highlights: [
-      "Entregou módulo de relatórios que reduziu trabalho manual da equipe de ops em 40%",
-      "Desenvolveu API de pagamentos processando 100k+ requisições/dia com 99.9% de uptime",
-      "Implementou testes automatizados (xUnit + React Testing Library) cobrindo 85% do código",
+      "Desenvolvimento e sustentação de microsserviços resilientes e APIs REST em .NET Core",
+      "Criação e otimização de interfaces dinâmicas e responsivas em React com TypeScript",
+      "Deploy e gerenciamento de aplicações containerizadas com Docker em infraestrutura AWS",
+      "Modelagem e otimização de consultas em bancos de dados MySQL para alto volume de dados",
     ],
-    tags: ["React", "TypeScript", "C#", "SQL Server", "Docker"],
+    tags: [".NET Core", "Microserviços", "React", "AWS", "Docker", "MySQL"],
   },
   {
-    company: "Startup XYZ",
-    role: "Desenvolvedor Júnior",
-    period: "Jun 2020 – Fev 2022",
-    location: "Remoto",
-    type: "PJ",
+    company: "GreenLegis",
+    role: "Desenvolvedor Júnior I",
+    period: "2020 – 2024",
+    location: "Belo Horizonte, MG",
+    type: "CLT",
     description:
-      "Atuação em produto de gestão financeira para pequenas empresas, do frontend ao banco de dados.",
+      "Desenvolvimento de funcionalidades end-to-end, integração de sistemas e suporte contínuo às aplicações do ecossistema GreenLegis.",
     highlights: [
-      "Construiu módulo de importação de extratos bancários (OFX/CSV)",
-      "Desenvolveu dashboard com Chart.js e dados em tempo real via WebSocket",
-      "Participou ativamente de code reviews e implementação de padrões de Clean Code",
+      "Construção de componentes reutilizáveis em React e melhorias em serviços REST em .NET Core",
+      "Manutenção e refatoração de código com foco em boas práticas e Clean Architecture",
+      "Manipulação e queries complexas em MySQL para relatórios e integrações de dados",
     ],
-    tags: ["React", "Node.js", "PostgreSQL", "Chart.js"],
+    tags: [".NET Core", "React", "Docker", "MySQL", "AWS"],
   },
   {
-    company: "Agência Digital",
+    company: "GreenLegis",
     role: "Estagiário de Desenvolvimento",
-    period: "Jan 2019 – Mai 2020",
-    location: "São Paulo, SP",
+    period: "2019 – 2020",
+    location: "Belo Horizonte, MG",
     type: "Estágio",
     description:
-      "Desenvolvimento de sites institucionais e e-commerces, primeiro contato com desenvolvimento profissional.",
+      "Suporte ao time de engenharia de software no desenvolvimento de aplicações web, correção de bugs e rotinas de banco de dados.",
     highlights: [
-      "Desenvolveu 12+ sites institucionais em WordPress e React",
-      "Aprendeu fundamentos de DevOps e deploy em VPS Linux",
+      "Auxílio no desenvolvimento de módulos backend com .NET Core e interfaces React",
+      "Acompanhamento de rotinas e scripts de banco de dados MySQL",
     ],
-    tags: ["React", "WordPress", "PHP", "MySQL"],
+    tags: [".NET Core", "React", "MySQL"],
   },
 ];
 
 const EDUCATION = [
   {
-    institution: "Universidade de São Paulo (USP)",
-    course: "Bacharelado em Ciência da Computação",
-    period: "2017 – 2021",
-    location: "São Paulo, SP",
-    description:
-      "Ênfase em Engenharia de Software e Sistemas Distribuídos. TCC sobre arquitetura de microsserviços e resiliência em ambientes cloud.",
-    highlights: [
-      "Medalha de honra ao mérito acadêmico (2021)",
-      "Monitor de Algoritmos e Estruturas de Dados (2019-2020)",
-      "Participação em maratona de programação ICPC",
-    ],
-  },
-  {
-    institution: "AWS Training & Certification",
-    course: "AWS Solutions Architect Associate",
-    period: "2025",
+    institution: "Udemy",
+    course: "Formação Angular 13",
+    period: "Agosto/2019",
     location: "Online",
     description:
-      "Certificação oficial Amazon Web Services para arquitetura de soluções em nuvem.",
+      "Certificado UC-999f8699-eae9-41ac-bed7-1bc83ab9b13f.",
     highlights: [],
   },
   {
-    institution: "Microsoft Learn",
-    course: "Microsoft Certified: Azure Developer Associate",
-    period: "2024",
+    institution: "desenvolvedor.io",
+    course: "Fundamentos do C#",
+    period: "Março/2023",
     location: "Online",
-    description: "Certificação oficial Microsoft para desenvolvimento em Azure.",
+    description:
+      "Instrutor: Rafael Almeida / Microsoft MVP. Conclusão: 17/03/2023.",
     highlights: [],
   },
   {
-    institution: "Linux Foundation",
-    course: "Certified Kubernetes Application Developer (CKAD)",
-    period: "2024",
+    institution: "Udemy",
+    course: "React + Redux, Material UI, Hooks, Typescript e API's Rest",
+    period: "Maio/2022",
     location: "Online",
-    description: "Certificação prática de Kubernetes para desenvolvedores de aplicações.",
+    description:
+      "Certificado UC-230dd2c4-8d18-4c4c-b715-190466d683e8.",
+    highlights: [],
+  },
+  {
+    institution: "Udemy",
+    course: "Clean Architecture Essencial - ASP .NET Core com C#",
+    period: "Maio/2022",
+    location: "Online",
+    description:
+      "Certificado UC-68476447-ba63-4172-bdb0-1e22852c54ef.",
     highlights: [],
   },
 ];
@@ -191,15 +174,6 @@ const QUICK_STATS = [
   { icon: Trophy,    value: 4,   suffix: "",   label: "Certificações", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
   { icon: GitBranch, value: 1450, suffix: "+", label: "Commits/ano", color: "text-neon",   bg: "bg-neon/10 border-neon/25" },
   { icon: Cpu,       value: 15,   suffix: "+", label: "Tecnologias", color: "text-neon-2", bg: "bg-neon-2/10 border-neon-2/25" },
-];
-
-const ACHIEVEMENTS_HIGHLIGHT = [
-  { icon: TrendingUp,    title: "-65% Latência",       desc: "Otimização de API financeira em produção",         color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
-  { icon: ShieldCheck,   title: "99.9% Uptime",        desc: "APIs de pagamento com 100k+ req/dia",             color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
-  { icon: Coffee,        title: "Zero Downtime",       desc: "Migração monolito → microsserviços sem interrupção", color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
-  { icon: Award,         title: "Mérito Acadêmico",    desc: "Distinção na graduação em Ciência da Computação", color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
-  { icon: BarChart3,     title: "38 Componentes",      desc: "Design system adotado em 3 produtos da empresa",   color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
-  { icon: Clock,         title: "8 min Deploy",        desc: "Pipeline CI/CD que era 2h agora leva 8 minutos",   color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
 ];
 
 // ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
@@ -382,10 +356,12 @@ function EducationCard({ item, index }: { item: (typeof EDUCATION)[0]; index: nu
               <Building2 className="size-3" />
               {item.institution}
             </span>
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3" />
-              {item.period}
-            </span>
+            {item.period ? (
+              <span className="flex items-center gap-1">
+                <Calendar className="size-3" />
+                {item.period}
+              </span>
+            ) : null}
           </div>
         </div>
         <span className="rounded-full border border-neon/30 bg-neon/10 px-2.5 py-0.5 font-mono text-[10px] text-neon">
@@ -640,27 +616,6 @@ export function ResumePage() {
               )}
             </section>
 
-            {/* ─ ACHIEVEMENTS HIGHLIGHT ──────────────────────────────── */}
-            <section id="resume-achievements">
-              <SectionTitle icon={Trophy} title="Conquistas em Destaque" />
-              <div className="grid gap-3 sm:grid-cols-2">
-                {ACHIEVEMENTS_HIGHLIGHT.map((item, i) => (
-                  <div
-                    key={item.title}
-                    className={`animate-reveal group flex items-start gap-3 rounded-2xl border p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${item.bg} ${item.border}`}
-                    style={{ animationDelay: `${i * 60}ms` }}
-                  >
-                    <div className={`flex size-10 shrink-0 items-center justify-center rounded-xl bg-background/60 ${item.color} transition-transform duration-300 group-hover:scale-110`}>
-                      <item.icon className="size-5" strokeWidth={1.75} />
-                    </div>
-                    <div>
-                      <p className={`font-display text-sm font-bold ${item.color}`}>{item.title}</p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
           {/* Sidebar column — Skills + Languages */}
