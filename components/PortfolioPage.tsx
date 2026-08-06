@@ -46,6 +46,7 @@ import {
   Search,
   Loader2,
   ExternalLink,
+  FileText,
 } from "lucide-react";
 import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { Marquee } from "@/components/Marquee";
@@ -53,6 +54,7 @@ import { TechIcon } from "@/components/TechIcon";
 
 const NAV = [
   { icon: Home, label: "Home", href: "#hero" },
+  { icon: FileText, label: "Currículo", href: "/resume" },
   { icon: Github, label: "Sync GitHub", href: "#github-sync" },
   { icon: User, label: "Sobre", href: "#stats" },
   { icon: Globe2, label: "Métricas", href: "#global-metrics" },
@@ -527,14 +529,14 @@ export function PortfolioPage() {
             ))}
           </ul>
           <a
-            href="#contact"
+            href="/resume"
             className="mt-4 flex items-center gap-3 rounded-2xl border border-primary/30 bg-primary/10 px-3 py-3 text-sm text-foreground transition-colors hover:bg-primary/20"
           >
-            <Download className="size-4 text-primary" strokeWidth={1.75} />
+            <FileText className="size-4 text-primary" strokeWidth={1.75} />
             <span>
-              Download CV
+              Ver Currículo
               <span className="block font-mono text-[10px] text-muted-foreground">
-                PDF
+                Download PDF
               </span>
             </span>
           </a>

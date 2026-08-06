@@ -42,3 +42,73 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@media print {
+  /* Reset colors for print */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide interactive and decorative elements */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Remove glow effects */
+  [class*="blur-"],
+  [class*="bg-primary/"],
+  [class*="bg-neon/"] {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove fixed positioned elements */
+  .fixed {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  /* Force page break avoidance in cards */
+  .rounded-2xl,
+  .rounded-3xl {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #e5e7eb !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure text contrast */
+  .text-muted-foreground {
+    color: #6b7280 !important;
+  }
+
+  .text-primary {
+    color: #7c3aed !important;
+  }
+
+  .text-neon {
+    color: #10b981 !important;
+  }
+
+  .text-foreground {
+    color: #111827 !important;
+  }
+
+  /* Remove backdrop blur */
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+  }
+
+  /* Skill bars print at current width */
+  [style*="width"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
