@@ -55,7 +55,7 @@ const EXPERIENCE = [
   {
     company: "GreenLegis",
     role: "Desenvolvedor Pleno",
-    period: "2024 – 2026",
+    period: "2023 – 2026",
     location: "Belo Horizonte, MG",
     type: "PJ",
     description:
@@ -71,7 +71,7 @@ const EXPERIENCE = [
   {
     company: "GreenLegis",
     role: "Desenvolvedor Júnior",
-    period: "2020 – 2024",
+    period: "2020 – 2023",
     location: "Belo Horizonte, MG",
     type: "CLT",
     description:

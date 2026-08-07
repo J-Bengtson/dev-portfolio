@@ -400,7 +400,7 @@ function Index() {
           {/* STATS + TERMINAL + AI */}
           <div className="grid gap-4">
             <Card className="p-6" delay={80}>
-              <Label icon={BarChart3}>Meu impacto em números</Label>
+              <Label icon={BarChart3}>Estatísticas</Label>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {STATS.map(({ icon: Icon, value, label }) => (
                   <div
