@@ -60,8 +60,8 @@ const STATS = [
 
 const JOURNEY = [
   { year: "2019 - 2020", role: "Estagiário", company: "GreenLegis" },
-  { year: "2020 - 2024", role: "Dev Júnior", company: "GreenLegis" },
-  { year: "2024 - 2026", role: "Dev Pleno", company: "GreenLegis" },
+  { year: "2020 - 2023", role: "Dev Júnior", company: "GreenLegis" },
+  { year: "2023 - 2026", role: "Dev Pleno", company: "GreenLegis" },
 ];
 
 const STACK = [
@@ -90,7 +90,7 @@ const ACHIEVEMENTS = [
 ];
 
 const CONTACT = [
-  { icon: Mail, label: "Email", value: "contato@juliobengtson.dev" },
+  { icon: Mail, label: "Email", value: "juliobn1304@gmail.com" },
   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/juliobengtson" },
   { icon: Github, label: "GitHub", value: "github.com/J-Bengtson" },
   { icon: MapPin, label: "Localização", value: "Belo Horizonte, MG - Brasil" },
@@ -186,10 +186,11 @@ const TESTIMONIALS = [
 ];
 
 const CERTS = [
-  { title: "Formação Angular 13 - O início criando 7 projetos", year: "2026", issuer: "Udemy" },
-  { title: "Fundamentos do C#", year: "2023", issuer: "desenvolvedor.io" },
-  { title: "React + Redux, Material UI, Hooks, Typescript e API's Rest", year: "2022", issuer: "Udemy" },
+  { title: "Engenharia de Software", year: "2017 - 2021", issuer: "PUC Minas" },
   { title: "Clean Architecture Essencial - ASP .NET Core com C#", year: "2022", issuer: "Udemy" },
+  { title: "React + Redux, Material UI, Hooks, Typescript e API's Rest", year: "2022", issuer: "Udemy" },
+  { title: "Fundamentos do C#", year: "2023", issuer: "desenvolvedor.io" },
+  { title: "Formação Angular 13", year: "2026", issuer: "Udemy" },
 ];
 
 const ARTICLES = [
@@ -373,7 +374,7 @@ function Card({
   return (
     <section
       id={id}
-      className={`animate-reveal rounded-3xl border border-border bg-surface/70 backdrop-blur-sm ${className}`}
+      className={`animate-reveal rounded-2xl border border-border bg-surface/70 backdrop-blur-sm ${className}`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {children}
@@ -467,120 +468,174 @@ export function PortfolioPage() {
         <div className="absolute -bottom-40 right-0 size-[30rem] rounded-full bg-neon/10 blur-[160px]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1400px] p-4">
+      <div className="relative mx-auto max-w-[1400px] p-3 sm:p-4 lg:p-5">
         {/* Main Grid */}
-        <main className="grid min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-2">
-          {/* HERO */}
-          <Card id="hero" className="relative overflow-hidden p-8">
-            <div className="pointer-events-none absolute right-0 bottom-0 h-full w-1/2 overflow-hidden opacity-60 mix-blend-lighten [mask-image:linear-gradient(to_right,transparent,black_45%)]">
-              <img
-                src="https://github.com/J-Bengtson.png"
-                alt="Foto de perfil de Júlio Bengtson Neves"
-                className="h-full w-full object-cover object-top transition-opacity duration-500"
-              />
-            </div>
-            <div className="relative max-w-sm">
-              <div className="inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-neon">
-                <span className="size-1.5 animate-pulse rounded-full bg-neon" />
-                Disponível para novas oportunidades
+        <main className="grid min-w-0 flex-1 grid-cols-1 gap-3 xl:grid-cols-[1.1fr_0.9fr] xl:gap-4">
+          <div className="grid w-full gap-3 xl:col-span-2">
+            {/* HERO */}
+            <Card id="hero" className="relative w-full overflow-hidden p-6 sm:p-7 lg:p-8">
+              <div className="pointer-events-none absolute right-0 bottom-0 h-full w-1/2 overflow-hidden opacity-60 mix-blend-lighten [mask-image:linear-gradient(to_right,transparent,black_45%)]">
+                <img
+                  src="https://github.com/J-Bengtson.png"
+                  alt="Foto de perfil de Júlio Bengtson Neves"
+                  className="h-full w-full object-cover object-top transition-opacity duration-500"
+                />
               </div>
-              <p className="mt-8 text-lg text-muted-foreground">Olá, eu sou</p>
-              <h1 className="bg-gradient-to-r from-neon via-primary to-neon-2 bg-clip-text font-display text-4xl leading-[0.95] tracking-tight text-transparent md:text-5xl">
-                Júlio Bengtson Neves
-              </h1>
-              <p className="mt-3 font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground">
-                Software Engineer | Full Stack & .NET
-              </p>
-              <p className="mt-6 text-pretty text-xs leading-relaxed text-muted-foreground md:text-sm">
-                Transformo ideias em produtos digitais de alta performance usando React, C# / .NET e boas práticas de arquitetura.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#journey"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
-                >
-                  Explorar minha carreira
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href="#projects"
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface-bright px-5 py-3 font-mono text-sm transition-colors hover:border-primary/40"
-                >
-                  Ver projetos &lt;/&gt;
-                </a>
-              </div>
-
-              {/* ── Resume Banner (Hero) ─────────────────────── */}
-              <a
-                href="/resume"
-                className="group mt-6 flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-r from-primary/10 via-surface-bright to-neon/5 px-4 py-3 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="relative flex size-9 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/15">
-                    <FileText className="size-4 text-primary" strokeWidth={1.75} />
-                    <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-background bg-neon animate-pulse" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">Currículo completo disponível</p>
-                    <p className="font-mono text-[10px] text-muted-foreground">Experiência · Skills · Certificações · PDF</p>
-                  </div>
+              <div className="relative w-full">
+                <div className="inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-neon">
+                  <span className="size-1.5 animate-pulse rounded-full bg-neon" />
+                  Disponível para novas oportunidades
                 </div>
-                <div className="flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/15 px-3 py-1.5 font-mono text-[10px] text-primary transition-colors group-hover:bg-primary/25">
-                  Ver agora
-                  <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-                </div>
-              </a>
-
-              <div className="mt-10">
-                <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  Conecte-se comigo
+                <p className="mt-6 text-lg text-muted-foreground">Olá, eu sou</p>
+                <h1 className="font-display text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl">
+                  Júlio Bengtson Neves
+                </h1>
+                <p className="mt-3 font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground">
+                  Software Engineer | Full Stack & .NET
                 </p>
-                <div className="flex gap-3">
-                  {[
-                    { icon: Github, href: "https://github.com/J-Bengtson" },
-                    { icon: Linkedin, href: "https://linkedin.com/in/juliobengtson" },
-                    { icon: Mail, href: "mailto:contato@juliobengtson.dev" },
-                  ].map(({ icon: Icon, href }, i) => (
-                    <a
-                      key={i}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Rede social"
-                      className="flex size-10 items-center justify-center rounded-xl border border-border bg-surface-bright text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-                    >
-                      <Icon className="size-4" strokeWidth={1.75} />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* STATS + TERMINAL + AI */}
-          <div id="stats" className="grid gap-4">
-            <Card className="p-6" delay={80}>
-              <Label icon={BarChart3}>Meu impacto em números</Label>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {STATS.map(({ icon: Icon, value, label }) => (
-                  <div
-                    key={label}
-                    className="rounded-2xl border border-border bg-surface-bright/60 p-4 text-center"
+                <p className="mt-4 text-pretty text-xs leading-relaxed text-muted-foreground md:text-sm">
+                  Transformo ideias em produtos digitais de alta performance usando React, C# / .NET e boas práticas de arquitetura.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#journey"
+                    className="group inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
                   >
-                    <Icon
-                      className="mx-auto mb-3 size-5 text-neon"
-                      strokeWidth={1.75}
-                    />
-                    <div className="font-display text-2xl">{value}</div>
-                    <div className="mt-1 font-mono text-[10px] uppercase leading-tight text-muted-foreground">
-                      {label}
+                    Explorar minha carreira
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface-bright px-5 py-3 font-mono text-sm transition-colors hover:border-primary/40"
+                  >
+                    Ver projetos &lt;/&gt;
+                  </a>
+                </div>
+
+                {/* ── Resume Banner (Hero) ─────────────────────── */}
+                <a
+                  href="/resume"
+                  className="group mt-5 inline-flex w-fit max-w-[30rem] items-center justify-between gap-3 overflow-hidden rounded-2xl border border-primary/25 bg-gradient-to-r from-primary/10 via-surface-bright to-neon/5 px-4 py-3 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="relative flex size-9 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/15">
+                      <FileText className="size-4 text-primary" strokeWidth={1.75} />
+                      <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-background bg-neon animate-pulse" />
+                    </div>
+                    <div className="min-w-0 max-w-[16rem]">
+                      <p className="truncate text-[10px] font-semibold text-foreground">Currículo completo disponível</p>
+                      <p className="truncate font-mono text-[9px] text-muted-foreground">Experiência · Skills · Certificações · PDF</p>
                     </div>
                   </div>
-                ))}
+                  <div className="flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/15 px-3 py-1.5 font-mono text-[10px] text-primary transition-colors group-hover:bg-primary/25">
+                    Ver agora
+                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </a>
+
+                <div className="mt-6">
+                  <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Conecte-se comigo
+                  </p>
+                  <div className="flex gap-3">
+                    {[
+                      { icon: Github, href: "https://github.com/J-Bengtson" },
+                      { icon: Linkedin, href: "https://linkedin.com/in/juliobengtson" },
+                      { icon: Mail, href: "mailto:juliobn1304@gmail.com" },
+                    ].map(({ icon: Icon, href }, i) => (
+                      <a
+                        key={i}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Rede social"
+                        className="flex size-10 items-center justify-center rounded-xl border border-border bg-surface-bright text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                      >
+                        <Icon className="size-4" strokeWidth={1.75} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Card>
 
+            {/* STATS + STACK */}
+            <div id="stats" className="grid w-full gap-2">
+              <Card className="w-full p-4 sm:p-5" delay={80}>
+                <Label icon={BarChart3}>Estatísticas</Label>
+                <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
+                  {STATS.map(({ icon: Icon, value, label }) => (
+                    <div
+                      key={label}
+                      className="flex w-full flex-col items-center justify-center rounded-2xl border border-border bg-surface-bright/60 p-3 text-center"
+                    >
+                      <Icon
+                        className="mb-2 size-4 text-neon"
+                        strokeWidth={1.75}
+                      />
+                      <div className="font-display text-xl">{value}</div>
+                      <div className="mt-1 font-mono text-[9px] uppercase leading-tight text-muted-foreground">
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* <Card className="p-5" delay={100}>
+                <Label icon={Layers}>Stack principal</Label>
+                <div className="space-y-3">
+                  {STACK.slice(0, 3).map(({ group, items }) => (
+                    <div key={group}>
+                      <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+                        {group}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {items.map((item) => (
+                          <span
+                            key={item}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-bright px-2.5 py-1 text-[11px] text-foreground/90"
+                          >
+                            <TechIcon name={item} className="size-3 text-primary" />
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card> */}
+            </div>
           </div>
+
+  {/* TECH MARQUEE — full width */}
+          <Card className="overflow-hidden py-6 xl:col-span-2" delay={620}>
+            <Marquee>
+              {TECH_MARQUEE.map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface-bright/60 px-4 py-2 font-mono text-xs text-muted-foreground"
+                >
+                  <TechIcon name={t} className="size-4 text-neon" />
+                  {t}
+                </span>
+              ))}
+            </Marquee>
+            <div className="mt-3">
+              <Marquee reverse duration={42}>
+                {[...TECH_MARQUEE].reverse().map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/10 px-4 py-2 font-mono text-xs text-neon"
+                  >
+                    <TechIcon name={t} className="size-4" />
+                    {t}
+                  </span>
+                ))}
+              </Marquee>
+            </div>
+          </Card>
+
 
           {/* FEATURED PROJECTS */}
           <Card id="projects" className="p-8 xl:col-span-2" delay={240}>
@@ -635,34 +690,65 @@ export function PortfolioPage() {
           </Card>
 
 
-          {/* CERTIFICAÇÕES */}
-          <Card id="certs" className="p-8" delay={660}>
-            <Label icon={Award}>Certificações</Label>
-            <ul className="space-y-3">
-              {CERTS.map((c) => (
-                <li
-                  key={c.title}
-                  className="flex items-center gap-3 rounded-2xl border border-border bg-surface-bright/60 p-3"
-                >
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-neon-2/30 bg-neon-2/10">
-                    <Award className="size-4 text-neon-2" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm">{c.title}</div>
-                  </div>
-                  <span className="font-mono text-[10px] text-muted-foreground">
-                    {c.year}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Card>
+          <div className="grid gap-3 lg:grid-cols-2 xl:col-span-2">
+            {/* CERTIFICAÇÕES */}
+            <Card id="certs" className="p-6" delay={660}>
+              <Label icon={Award}>Formação & Certificações</Label>
+              <ul className="space-y-2.5">
+                {CERTS.map((c) => (
+                  <li
+                    key={c.title}
+                    className="flex items-center gap-3 rounded-2xl border border-border bg-surface-bright/60 p-3"
+                  >
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-neon-2/30 bg-neon-2/10">
+                      <Award className="size-4 text-neon-2" strokeWidth={1.75} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm">{c.title}</div>
+                    </div>
+                    <span className="font-mono text-[10px] text-muted-foreground">
+                      {c.year}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            {/* CONTACT */}
+            <Card id="contact" className="flex flex-col p-6" delay={640}>
+              <Label icon={Mail}>Contato</Label>
+              <ul className="flex-1 space-y-3">
+                {CONTACT.map(({ icon: Icon, label, value }) => (
+                  <li key={label} className="flex items-center gap-3">
+                    <div className="flex size-9 items-center justify-center rounded-xl border border-border bg-surface-bright">
+                      <Icon
+                        className="size-4 text-muted-foreground"
+                        strokeWidth={1.75}
+                      />
+                    </div>
+                    <div>
+                      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        {label}
+                      </div>
+                      <div className="text-sm">{value}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="mailto:contato@seudominio.dev"
+                className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Vamos conversar <Rocket className="size-4" strokeWidth={1.75} />
+              </a>
+            </Card>
+          </div>
 
           {/* RESUME CTA BANNER */}
-          <Card className="group relative overflow-hidden p-0" delay={620}>
+          <Card className="group relative overflow-hidden p-0 xl:col-span-2" delay={620}>
             <a
               href="/resume"
-              className="flex items-center justify-between gap-4 p-6 transition-all duration-300 hover:bg-primary/5"
+              className="flex flex-col gap-4 p-5 transition-all duration-300 hover:bg-primary/5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
             >
               {/* Left glow accent */}
               <div className="pointer-events-none absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-neon via-primary to-neon-2" />
@@ -687,42 +773,13 @@ export function PortfolioPage() {
               </div>
 
               {/* Right CTA */}
-              <div className="flex shrink-0 flex-col items-end gap-2">
+              <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end">
                 <span className="flex items-center gap-1.5 rounded-xl border border-primary/40 bg-primary/15 px-4 py-2.5 font-mono text-xs font-medium text-primary transition-colors group-hover:bg-primary/25">
                   Ver Currículo
                   <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
                 <span className="font-mono text-[10px] text-muted-foreground">PDF disponível</span>
               </div>
-            </a>
-          </Card>
-
-          {/* CONTACT */}
-          <Card id="contact" className="flex flex-col p-8" delay={640}>
-            <Label icon={Mail}>Contato</Label>
-            <ul className="flex-1 space-y-4">
-              {CONTACT.map(({ icon: Icon, label, value }) => (
-                <li key={label} className="flex items-center gap-3">
-                  <div className="flex size-9 items-center justify-center rounded-xl border border-border bg-surface-bright">
-                    <Icon
-                      className="size-4 text-muted-foreground"
-                      strokeWidth={1.75}
-                    />
-                  </div>
-                  <div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {label}
-                    </div>
-                    <div className="text-sm">{value}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="mailto:contato@seudominio.dev"
-              className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Vamos conversar <Rocket className="size-4" strokeWidth={1.75} />
             </a>
           </Card>
         </main>
