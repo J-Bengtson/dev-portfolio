@@ -10,6 +10,7 @@ export type CarouselProject = {
   desc: string;
   tags: string[];
   metric: string;
+  url: string;
 };
 
 export function ProjectCarousel({ items }: { items: CarouselProject[] }) {
@@ -114,10 +115,12 @@ export function ProjectCarousel({ items }: { items: CarouselProject[] }) {
                   {p.metric}
                 </span>
                 <a
-                  href="#"
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary"
                 >
-                  Ver case
+                  Ver no GitHub
                   <ExternalLink className="size-3 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>

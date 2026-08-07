@@ -48,7 +48,7 @@ import {
   ExternalLink,
   FileText,
 } from "lucide-react";
-import { ProjectCarousel } from "@/components/ProjectCarousel";
+import { ProjectCarousel, type CarouselProject } from "@/components/ProjectCarousel";
 import { Marquee } from "@/components/Marquee";
 import { TechIcon } from "@/components/TechIcon";
 
@@ -103,6 +103,7 @@ const CAROUSEL = [
     desc: "ERP modular com dashboard em tempo real, controle de estoque e BI integrado.",
     tags: ["React", ".NET Core", "MySQL", "Docker"],
     metric: "↓ 40% tempo operacional",
+    url: "#",
   },
   {
     title: "Plataforma SaaS Multi-tenant",
@@ -110,6 +111,7 @@ const CAROUSEL = [
     desc: "Isolamento por tenant, billing recorrente e onboarding self-service.",
     tags: ["React", "MySQL", "AWS", "Microserviços"],
     metric: "1.2k contas ativas",
+    url: "#",
   },
   {
     title: "API de Pagamentos",
@@ -117,6 +119,7 @@ const CAROUSEL = [
     desc: "Gateway resiliente com filas, retry idempotente e observabilidade completa.",
     tags: [".NET Core", "Microserviços", "Docker", "AWS"],
     metric: "100k+ req/dia",
+    url: "#",
   },
   {
     title: "Design System Interno",
@@ -124,6 +127,7 @@ const CAROUSEL = [
     desc: "Biblioteca de componentes acessíveis com tokens e documentação viva.",
     tags: ["React", "TypeScript", "Material UI"],
     metric: "38 componentes",
+    url: "#",
   },
   {
     title: "Pipeline de Dados",
@@ -131,6 +135,7 @@ const CAROUSEL = [
     desc: "Ingestão event-driven com processamento incremental e alertas automáticos.",
     tags: ["Docker", "AWS", "MySQL"],
     metric: "99.9% uptime",
+    url: "#",
   },
 ];
 
@@ -397,6 +402,9 @@ function Label({
 
 export function PortfolioPage() {
   const [aiQuestion, setAiQuestion] = React.useState("");
+  const [carouselItems, setCarouselItems] = React.useState<CarouselProject[]>(CAROUSEL);
+  const [loadingGitHub, setLoadingGitHub] = React.useState(true);
+  const [githubError, setGithubError] = React.useState<string | null>(null);
 
   const [chatHistory, setChatHistory] = React.useState([
     {
@@ -424,6 +432,32 @@ export function PortfolioPage() {
       },
     ]);
   };
+
+  React.useEffect(() => {
+    async function loadGitHubProjects() {
+      try {
+        const res = await fetch("/api/github?username=J-Bengtson");
+        if (!res.ok) {
+          throw new Error("Não foi possível carregar os projetos do GitHub.");
+        }
+
+        const data = await res.json();
+        if (Array.isArray(data.carouselProjects) && data.carouselProjects.length > 0) {
+          setCarouselItems(data.carouselProjects);
+        }
+      } catch (error) {
+        setGithubError(
+          error instanceof Error
+            ? error.message
+            : "Erro desconhecido ao buscar projetos do GitHub."
+        );
+      } finally {
+        setLoadingGitHub(false);
+      }
+    }
+
+    loadGitHubProjects();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
@@ -547,6 +581,21 @@ export function PortfolioPage() {
             </Card>
 
           </div>
+
+          {/* FEATURED PROJECTS */}
+          <Card id="projects" className="p-8 xl:col-span-2" delay={240}>
+            <Label icon={FolderKanban}>Projetos em destaque</Label>
+            {loadingGitHub ? (
+              <p className="mb-4 text-sm text-muted-foreground">
+                Carregando projetos do GitHub...
+              </p>
+            ) : githubError ? (
+              <p className="mb-4 text-sm text-destructive">
+                {githubError} Exibindo exemplos estáticos.
+              </p>
+            ) : null}
+            <ProjectCarousel items={carouselItems} />
+          </Card>
 
           {/* JOURNEY — full width */}
           <Card id="journey" className="p-8 xl:col-span-2" delay={320}>
