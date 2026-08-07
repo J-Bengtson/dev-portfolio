@@ -75,7 +75,6 @@ const STATS = [
   { icon: Code2, value: "6+", label: "Anos desenvolvendo" },
   { icon: Rocket, value: "30+", label: "Projetos entregues" },
   { icon: Layers, value: "15+", label: "Tecnologias" },
-  { icon: BarChart3, value: "99.9%", label: "Uptime" },
 ];
 
 const JOURNEY = [
@@ -401,7 +400,7 @@ function Index() {
           {/* STATS + TERMINAL + AI */}
           <div className="grid gap-4">
             <Card className="p-6" delay={80}>
-              <Label icon={BarChart3}>Meu impacto em números</Label>
+              <Label icon={BarChart3}>Estatísticas</Label>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {STATS.map(({ icon: Icon, value, label }) => (
                   <div
@@ -549,53 +548,6 @@ function Index() {
                   </div>
                 </div>
               ))}
-            </div>
-          </Card>
-
-          {/* FEATURED PROJECT */}
-          <Card className="overflow-hidden p-8" delay={480}>
-            <Label icon={Rocket}>Projeto em destaque</Label>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <img
-                src={dashboardPreview}
-                alt="Dashboard do sistema de gestão empresarial com gráficos e métricas"
-                width={1200}
-                height={600}
-                loading="lazy"
-                className="h-40 w-full rounded-2xl border border-border object-cover"
-              />
-              <div>
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-display text-lg leading-tight">
-                    Sistema de Gestão Empresarial
-                  </h3>
-                  <span className="shrink-0 rounded-full border border-neon-2/30 bg-neon-2/10 px-2 py-0.5 font-mono text-[9px] uppercase text-neon-2">
-                    Destaque
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Plataforma completa para gestão empresarial com dashboard
-                  inteligente e relatórios em tempo real.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {["React", ".NET", "SQL Server", "Docker", "AWS"].map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface-bright px-2 py-1 font-mono text-[10px] text-muted-foreground"
-                    >
-                      <TechIcon name={t} className="size-3 text-neon" />
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href="#"
-                  className="group mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary"
-                >
-                  Ver case completo
-                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
             </div>
           </Card>
 
@@ -799,11 +751,6 @@ function Index() {
       </div>
 
       <footer className="relative mx-auto mt-4 flex max-w-[1400px] flex-col items-center justify-between gap-3 rounded-3xl border border-border bg-surface/70 p-6 text-center md:flex-row md:text-left">
-        <div className="flex items-center gap-3 font-mono text-[11px] text-muted-foreground">
-          <span className="text-primary">&lt;/&gt;</span>
-          “Código é como humor. Quando você tem que explicar, é ruim.” — Cory
-          House
-        </div>
         <div className="font-mono text-[11px] text-muted-foreground">
           Feito com paixão por tecnologia 💜
         </div>

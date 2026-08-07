@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   Briefcase,
   GraduationCap,
-  Globe2,
   Code2,
   MapPin,
   Mail,
@@ -36,120 +35,116 @@ import {
   BarChart3,
 } from "lucide-react";
 
+import { TechIcon } from "@/components/TechIcon";
+
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 // Edit these arrays with your real information
 
 const RESUME_HEADER = {
-  name: "Seu Nome Completo",
-  title: "Software Engineer Full Stack",
-  location: "Brasil",
-  email: "contato@seudominio.dev",
-  linkedin: "linkedin.com/in/seuperfil",
-  github: "github.com/seuusuario",
+  name: "Júlio Bengtson Neves",
+  title: "Desenvolvedor Full Stack / Software Engineer",
+  location: "Belo Horizonte, MG - Brasil",
+  email: "contato@juliobengtson.dev",
+  linkedin: "linkedin.com/in/juliobengtson",
+  github: "github.com/J-Bengtson",
   summary:
-    "Desenvolvedor Full Stack com 6+ anos de experiência criando aplicações escaláveis, APIs de alta performance e interfaces modernas. Especialista em React/Next.js e C#/.NET 8, com domínio em arquitetura de microsserviços, DevOps e cloud AWS.",
+    "Desenvolvedor Full Stack com sólida trajetória na GreenLegis (de Estagiário a Desenvolvedor Pleno). Especialista em ecossistema .NET Core, arquitetura de microsserviços, React, AWS, Docker e MySQL, focado no desenvolvimento e entrega de sistemas resilientes e de alta performance.",
 };
 
 const EXPERIENCE = [
   {
-    company: "Empresa Atual",
-    role: "Software Engineer Sênior",
-    period: "Jan 2025 – Presente",
-    location: "Remoto",
-    type: "CLT/PJ",
-    description:
-      "Liderança técnica de squad de 4 devs, responsável pela arquitetura de plataforma SaaS multi-tenant com Next.js e .NET 8.",
-    highlights: [
-      "Reduziu latência da API principal em 65% via cache Redis e otimização de queries",
-      "Implementou pipeline CI/CD com GitHub Actions, reduzindo deploy de 2h para 8min",
-      "Liderou migração de monolito para microsserviços com zero downtime",
-      "Arquitetou design system com 38 componentes usados em 3 produtos",
-    ],
-    tags: ["Next.js", "C#", ".NET 8", "Redis", "Docker", "AWS"],
-  },
-  {
-    company: "Empresa Anterior",
-    role: "Dev Full Stack Pleno",
-    period: "Mar 2022 – Dez 2024",
-    location: "São Paulo, SP",
-    type: "CLT",
-    description:
-      "Desenvolvimento de ERP modular com dashboard em tempo real, controle de estoque e módulos de BI integrado.",
-    highlights: [
-      "Entregou módulo de relatórios que reduziu trabalho manual da equipe de ops em 40%",
-      "Desenvolveu API de pagamentos processando 100k+ requisições/dia com 99.9% de uptime",
-      "Implementou testes automatizados (xUnit + React Testing Library) cobrindo 85% do código",
-    ],
-    tags: ["React", "TypeScript", "C#", "SQL Server", "Docker"],
-  },
-  {
-    company: "Startup XYZ",
-    role: "Desenvolvedor Júnior",
-    period: "Jun 2020 – Fev 2022",
-    location: "Remoto",
+    company: "GreenLegis",
+    role: "Desenvolvedor Pleno",
+    period: "2023 – 2026",
+    location: "Belo Horizonte, MG",
     type: "PJ",
     description:
-      "Atuação em produto de gestão financeira para pequenas empresas, do frontend ao banco de dados.",
+      "Atuação no desenvolvimento e arquitetura de soluções corporativas escaláveis com stack em .NET Core, microsserviços, React, AWS, Docker e MySQL.",
     highlights: [
-      "Construiu módulo de importação de extratos bancários (OFX/CSV)",
-      "Desenvolveu dashboard com Chart.js e dados em tempo real via WebSocket",
-      "Participou ativamente de code reviews e implementação de padrões de Clean Code",
+      "Desenvolvimento e sustentação de microsserviços resilientes e APIs REST em .NET Core",
+      "Criação e otimização de interfaces dinâmicas e responsivas em React com TypeScript",
+      "Deploy e gerenciamento de aplicações containerizadas com Docker em infraestrutura AWS",
+      "Modelagem e otimização de consultas em bancos de dados MySQL para alto volume de dados",
     ],
-    tags: ["React", "Node.js", "PostgreSQL", "Chart.js"],
+    tags: [".NET Core", "Microserviços", "React", "AWS", "Docker", "MySQL"],
   },
   {
-    company: "Agência Digital",
+    company: "GreenLegis",
+    role: "Desenvolvedor Júnior",
+    period: "2020 – 2023",
+    location: "Belo Horizonte, MG",
+    type: "CLT",
+    description:
+      "Desenvolvimento de funcionalidades end-to-end, integração de sistemas e suporte contínuo às aplicações do ecossistema GreenLegis.",
+    highlights: [
+      "Construção de componentes reutilizáveis em React e melhorias em serviços REST em .NET Core",
+      "Manutenção e refatoração de código com foco em boas práticas e Clean Architecture",
+      "Manipulação e queries complexas em MySQL para relatórios e integrações de dados",
+    ],
+    tags: [".NET Core", "React", "Docker", "MySQL", "AWS"],
+  },
+  {
+    company: "GreenLegis",
+
     role: "Estagiário de Desenvolvimento",
-    period: "Jan 2019 – Mai 2020",
-    location: "São Paulo, SP",
+    period: "2019 – 2020",
+    location: "Belo Horizonte, MG",
     type: "Estágio",
     description:
-      "Desenvolvimento de sites institucionais e e-commerces, primeiro contato com desenvolvimento profissional.",
+      "Suporte ao time de engenharia de software no desenvolvimento de aplicações web, correção de bugs e rotinas de banco de dados.",
     highlights: [
-      "Desenvolveu 12+ sites institucionais em WordPress e React",
-      "Aprendeu fundamentos de DevOps e deploy em VPS Linux",
+      "Auxílio no desenvolvimento de módulos backend com .NET Core e interfaces React",
+      "Acompanhamento de rotinas e scripts de banco de dados MySQL",
     ],
-    tags: ["React", "WordPress", "PHP", "MySQL"],
+    tags: [".NET Core", "React", "MySQL"],
   },
 ];
 
 const EDUCATION = [
   {
-    institution: "Universidade de São Paulo (USP)",
-    course: "Bacharelado em Ciência da Computação",
-    period: "2017 – 2021",
-    location: "São Paulo, SP",
+    institution: "PUC Minas",
+    course: "Engenharia de Software",
+    period: "",
+    location: "Belo Horizonte, MG",
     description:
-      "Ênfase em Engenharia de Software e Sistemas Distribuídos. TCC sobre arquitetura de microsserviços e resiliência em ambientes cloud.",
-    highlights: [
-      "Medalha de honra ao mérito acadêmico (2021)",
-      "Monitor de Algoritmos e Estruturas de Dados (2019-2020)",
-      "Participação em maratona de programação ICPC",
-    ],
-  },
-  {
-    institution: "AWS Training & Certification",
-    course: "AWS Solutions Architect Associate",
-    period: "2025",
-    location: "Online",
-    description:
-      "Certificação oficial Amazon Web Services para arquitetura de soluções em nuvem.",
+      "Formação acadêmica focada em Engenharia de Software, arquitetura de sistemas, engenharia de requisitos e boas práticas de desenvolvimento.",
     highlights: [],
   },
   {
-    institution: "Microsoft Learn",
-    course: "Microsoft Certified: Azure Developer Associate",
-    period: "2024",
+    institution: "Udemy",
+    course: "Formação Angular 13",
+    period: "Agosto/2019",
     location: "Online",
-    description: "Certificação oficial Microsoft para desenvolvimento em Azure.",
+    description:
+      "Certificado UC-999f8699-eae9-41ac-bed7-1bc83ab9b13f.",
     highlights: [],
   },
   {
-    institution: "Linux Foundation",
-    course: "Certified Kubernetes Application Developer (CKAD)",
-    period: "2024",
+    institution: "desenvolvedor.io",
+    course: "Fundamentos do C#",
+    period: "Março/2023",
     location: "Online",
-    description: "Certificação prática de Kubernetes para desenvolvedores de aplicações.",
+    description:
+      "Instrutor: Rafael Almeida / Microsoft MVP. Conclusão: 17/03/2023.",
+    highlights: [],
+  },
+  {
+    institution: "Udemy",
+    course: "React + Redux, Material UI, Hooks, Typescript e API's Rest",
+    period: "Maio/2022",
+    location: "Online",
+    description:
+
+      "Certificado UC-230dd2c4-8d18-4c4c-b715-190466d683e8.",
+    highlights: [],
+  },
+  {
+    institution: "Udemy",
+    course: "Clean Architecture Essencial - ASP .NET Core com C#",
+    period: "Maio/2022",
+    location: "Online",
+    description:
+      "Certificado UC-68476447-ba63-4172-bdb0-1e22852c54ef.",
     highlights: [],
   },
 ];
@@ -176,13 +171,24 @@ const SKILLS = [
   { name: "Comunicação", level: 92, group: "Soft Skills", icon: "💬" },
 ];
 
-const LANGUAGES = [
-  { lang: "Português", level: "Nativo", flag: "🇧🇷", percent: 100 },
-  { lang: "Inglês", level: "Avançado (C1)", flag: "🇺🇸", percent: 85 },
-  { lang: "Espanhol", level: "Básico (A2)", flag: "🇪🇸", percent: 40 },
+const STACKS = [
+  {
+    group: "Backend",
+    items: [".NET Core", "C#", "Microserviços", "REST APIs"],
+  },
+  {
+    group: "Frontend",
+    items: ["React", "TypeScript", "Next.js", "Angular"],
+  },
+  {
+    group: "Database",
+    items: ["MySQL", "PostgreSQL", "Redis", "MongoDB"],
+  },
+  {
+    group: "DevOps & Cloud",
+    items: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+  },
 ];
-
-const SKILL_GROUPS = ["Frontend", "Backend", "Database", "DevOps", "Soft Skills"];
 
 const QUICK_STATS = [
   { icon: Briefcase, value: 6, suffix: "+", label: "Anos de exp.", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
@@ -191,15 +197,6 @@ const QUICK_STATS = [
   { icon: Trophy,    value: 4,   suffix: "",   label: "Certificações", color: "text-primary", bg: "bg-primary/10 border-primary/25" },
   { icon: GitBranch, value: 1450, suffix: "+", label: "Commits/ano", color: "text-neon",   bg: "bg-neon/10 border-neon/25" },
   { icon: Cpu,       value: 15,   suffix: "+", label: "Tecnologias", color: "text-neon-2", bg: "bg-neon-2/10 border-neon-2/25" },
-];
-
-const ACHIEVEMENTS_HIGHLIGHT = [
-  { icon: TrendingUp,    title: "-65% Latência",       desc: "Otimização de API financeira em produção",         color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
-  { icon: ShieldCheck,   title: "99.9% Uptime",        desc: "APIs de pagamento com 100k+ req/dia",             color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
-  { icon: Coffee,        title: "Zero Downtime",       desc: "Migração monolito → microsserviços sem interrupção", color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
-  { icon: Award,         title: "Mérito Acadêmico",    desc: "Distinção na graduação em Ciência da Computação", color: "text-neon",     bg: "bg-neon/10",     border: "border-neon/20" },
-  { icon: BarChart3,     title: "38 Componentes",      desc: "Design system adotado em 3 produtos da empresa",   color: "text-primary",  bg: "bg-primary/10",  border: "border-primary/20" },
-  { icon: Clock,         title: "8 min Deploy",        desc: "Pipeline CI/CD que era 2h agora leva 8 minutos",   color: "text-neon-2", bg: "bg-neon-2/10", border: "border-neon-2/20" },
 ];
 
 // ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
@@ -291,14 +288,10 @@ function TimelineNode({ color = "primary" }: { color?: "primary" | "neon" | "neo
 function ExperienceCard({
   item,
   index,
-  expanded,
 }: {
   item: (typeof EXPERIENCE)[0];
   index: number;
-  expanded: boolean;
 }) {
-  const [open, setOpen] = React.useState(false);
-
   return (
     <div
       className="animate-reveal group rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
@@ -331,7 +324,7 @@ function ExperienceCard({
       <p className="mb-3 text-xs leading-relaxed text-muted-foreground">{item.description}</p>
 
       {/* Highlights */}
-      {(expanded || open) && (
+      {item.highlights.length > 0 && (
         <ul className="mb-3 space-y-1.5">
           {item.highlights.map((h) => (
             <li key={h} className="flex items-start gap-2 text-xs text-foreground/80">
@@ -348,20 +341,13 @@ function ExperienceCard({
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-lg border border-border bg-surface-bright px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-surface-bright px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
             >
+              <TechIcon name={tag} className="size-3 text-primary" />
               {tag}
             </span>
           ))}
         </div>
-        {!expanded && item.highlights.length > 0 && (
-          <button
-            onClick={() => setOpen(!open)}
-            className="font-mono text-[10px] text-primary hover:underline"
-          >
-            {open ? "Ver menos" : `Ver ${item.highlights.length} destaques →`}
-          </button>
-        )}
       </div>
     </div>
   );
@@ -382,10 +368,12 @@ function EducationCard({ item, index }: { item: (typeof EDUCATION)[0]; index: nu
               <Building2 className="size-3" />
               {item.institution}
             </span>
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3" />
-              {item.period}
-            </span>
+            {item.period ? (
+              <span className="flex items-center gap-1">
+                <Calendar className="size-3" />
+                {item.period}
+              </span>
+            ) : null}
           </div>
         </div>
         <span className="rounded-full border border-neon/30 bg-neon/10 px-2.5 py-0.5 font-mono text-[10px] text-neon">
@@ -447,21 +435,9 @@ function TimelineSection({ children, nodeColor = "primary" }: { children: React.
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export function ResumePage() {
-  const [mode, setMode] = React.useState<"summary" | "full">("summary");
-  const expanded = mode === "full";
-
-  const visibleExperience = expanded ? EXPERIENCE : EXPERIENCE.slice(0, 2);
-  const visibleEducation = expanded ? EDUCATION : EDUCATION.slice(0, 1);
-  const visibleSkills = expanded ? SKILLS : SKILLS.slice(0, 8);
-
   const handlePrint = () => {
     window.print();
   };
-
-  const skillsByGroup = SKILL_GROUPS.map((group) => ({
-    group,
-    skills: visibleSkills.filter((s) => s.group === group),
-  })).filter((g) => g.skills.length > 0);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 print:bg-white print:text-black">
@@ -483,30 +459,6 @@ export function ResumePage() {
           </a>
 
           <div className="flex items-center gap-2">
-            {/* Toggle */}
-            <div className="flex overflow-hidden rounded-xl border border-border bg-surface/70">
-              <button
-                onClick={() => setMode("summary")}
-                className={`px-4 py-2.5 text-xs font-medium transition-colors ${
-                  mode === "summary"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                Resumido
-              </button>
-              <button
-                onClick={() => setMode("full")}
-                className={`px-4 py-2.5 text-xs font-medium transition-colors ${
-                  mode === "full"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                Completo
-              </button>
-            </div>
-
             {/* Download PDF */}
             <button
               onClick={handlePrint}
@@ -576,23 +528,7 @@ export function ResumePage() {
           </div>
         </div>
 
-        {/* ── Quick Stats Strip ───────────────────────────────────────── */}
-        <div className="animate-reveal mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 print:hidden" style={{ animationDelay: "80ms" }}>
-          {QUICK_STATS.map(({ icon: Icon, value, suffix, label, color, bg }) => (
-            <div
-              key={label}
-              className={`group flex flex-col items-center gap-1.5 rounded-2xl border p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${bg}`}
-            >
-              <div className={`flex size-9 items-center justify-center rounded-xl bg-background/60 ${color}`}>
-                <Icon className="size-4" strokeWidth={1.75} />
-              </div>
-              <div className={`font-display text-2xl font-extrabold ${color}`}>
-                <AnimatedCounter target={value} suffix={suffix} />
-              </div>
-              <div className="font-mono text-[10px] leading-tight text-muted-foreground">{label}</div>
-            </div>
-          ))}
-        </div>
+        {/* ── Header / Identity ──────────────────────────────────────── */}
 
         {/* ── Two-column layout ──────────────────────────────────────── */}
         <div className="grid gap-6 lg:grid-cols-3">
@@ -600,158 +536,59 @@ export function ResumePage() {
           <div className="space-y-8 lg:col-span-2">
             {/* ─ EXPERIENCE ──────────────────────────────────── */}
             <section id="resume-experience">
-              <SectionTitle icon={Briefcase} title="Experiência Profissional" count={visibleExperience.length} />
+              <SectionTitle icon={Briefcase} title="Experiência Profissional" count={EXPERIENCE.length} />
               <div className="space-y-1">
-                {visibleExperience.map((item, i) => (
+                {EXPERIENCE.map((item, i) => (
                   <TimelineSection key={item.company + item.period} nodeColor="primary">
-                    <ExperienceCard item={item} index={i} expanded={expanded} />
+                    <ExperienceCard item={item} index={i} />
                   </TimelineSection>
                 ))}
               </div>
-              {!expanded && EXPERIENCE.length > 2 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-2 ml-8 flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Zap className="size-3" />
-                  Ver mais {EXPERIENCE.length - 2} experiências anteriores
-                </button>
-              )}
             </section>
 
             {/* ─ EDUCATION ───────────────────────────────────── */}
             <section id="resume-education">
-              <SectionTitle icon={GraduationCap} title="Formação & Certificações" count={visibleEducation.length} />
+              <SectionTitle icon={GraduationCap} title="Formação & Certificações" count={EDUCATION.length} />
               <div className="space-y-1">
-                {visibleEducation.map((item, i) => (
+                {EDUCATION.map((item, i) => (
                   <TimelineSection key={item.institution + item.period} nodeColor="neon">
                     <EducationCard item={item} index={i} />
                   </TimelineSection>
                 ))}
               </div>
-              {!expanded && EDUCATION.length > 1 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-2 ml-8 flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Zap className="size-3" />
-                  Ver mais {EDUCATION.length - 1} certificações
-                </button>
-              )}
             </section>
 
-            {/* ─ ACHIEVEMENTS HIGHLIGHT ──────────────────────────────── */}
-            <section id="resume-achievements">
-              <SectionTitle icon={Trophy} title="Conquistas em Destaque" />
-              <div className="grid gap-3 sm:grid-cols-2">
-                {ACHIEVEMENTS_HIGHLIGHT.map((item, i) => (
-                  <div
-                    key={item.title}
-                    className={`animate-reveal group flex items-start gap-3 rounded-2xl border p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${item.bg} ${item.border}`}
-                    style={{ animationDelay: `${i * 60}ms` }}
-                  >
-                    <div className={`flex size-10 shrink-0 items-center justify-center rounded-xl bg-background/60 ${item.color} transition-transform duration-300 group-hover:scale-110`}>
-                      <item.icon className="size-5" strokeWidth={1.75} />
-                    </div>
-                    <div>
-                      <p className={`font-display text-sm font-bold ${item.color}`}>{item.title}</p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
-          {/* Sidebar column — Skills + Languages */}
+          {/* Sidebar column — Stacks */}
           <div className="space-y-6">
-            {/* ─ SKILLS ──────────────────────────────────────── */}
             <section
-              id="resume-skills"
+              id="resume-stacks"
               className="animate-reveal rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm"
+              style={{ animationDelay: "120ms" }}
             >
-              <SectionTitle icon={Code2} title="Habilidades" />
-              <div className="space-y-6">
-                {skillsByGroup.map(({ group, skills }) => (
-                  <div key={group}>
-                    <div className="mb-3 flex items-center gap-2">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                        {group}
-                      </span>
-                      <div className="flex-1 border-t border-border" />
-                    </div>
-                    <div className="space-y-3">
-                      {skills.map((s, i) => (
-                        <SkillBar key={s.name} name={s.name} level={s.level} icon={s.icon} delay={i * 100} />
+              <SectionTitle icon={Layers} title="Stacks" />
+              <div className="space-y-4">
+                {STACKS.map((group) => (
+                  <div key={group.group}>
+                    <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                      {group.group}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <span
+                          key={item}
+                          className="flex items-center gap-1.5 rounded-full border border-border bg-surface-bright px-2.5 py-1 text-[11px] text-foreground/80"
+                        >
+                          <TechIcon name={item} className="size-3.5 text-primary" />
+                          {item}
+                        </span>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
-              {!expanded && SKILLS.length > 8 && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-xl border border-border py-2 font-mono text-[10px] text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                >
-                  <Layers className="size-3" />
-                  Ver todas as {SKILLS.length} habilidades
-                </button>
-              )}
             </section>
-
-            {/* ─ LANGUAGES ───────────────────────────────────── */}
-            <section
-              id="resume-languages"
-              className="animate-reveal rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm"
-              style={{ animationDelay: "120ms" }}
-            >
-              <SectionTitle icon={Globe2} title="Idiomas" />
-              <div className="space-y-4">
-                {LANGUAGES.map((l) => (
-                  <div key={l.lang}>
-                    <div className="mb-1.5 flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-xs font-medium text-foreground">
-                        <span className="text-base">{l.flag}</span>
-                        {l.lang}
-                      </span>
-                      <span className="font-mono text-[10px] text-muted-foreground">{l.level}</span>
-                    </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-surface-bright">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-neon-2 to-neon"
-                        style={{ width: `${l.percent}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* ─ MODE INDICATOR ──────────────────────────────── */}
-            <div className="animate-reveal rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm print:hidden" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-3">
-                <div className={`size-2 rounded-full ${expanded ? "bg-neon animate-pulse" : "bg-primary"}`} />
-                <div>
-                  <p className="text-xs font-medium text-foreground">
-                    Modo {expanded ? "Completo" : "Resumido"}
-                  </p>
-                  <p className="font-mono text-[10px] text-muted-foreground">
-                    {expanded
-                      ? `Exibindo ${EXPERIENCE.length} exp. + ${EDUCATION.length} form.`
-                      : `Exibindo ${visibleExperience.length} de ${EXPERIENCE.length} exp.`}
-                  </p>
-                </div>
-              </div>
-              {!expanded && (
-                <button
-                  onClick={() => setMode("full")}
-                  className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl border border-primary/30 bg-primary/10 py-2.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-                >
-                  <FileText className="size-3.5" />
-                  Ver currículo completo
-                </button>
-              )}
-            </div>
           </div>
         </div>
 
